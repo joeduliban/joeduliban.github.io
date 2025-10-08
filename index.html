@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joe Nammour - Ingénieur Informatique Industrielle</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #7c3aed;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+        }
+
+        .header-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 72px;
+            color: var(--white);
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .info-section h1 {
+            font-size: 2.5em;
+            color: var(--dark);
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .info-section h2 {
+            font-size: 1.3em;
+            color: var(--gray);
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95em;
+            color: var(--gray);
+        }
+
+        .contact-item::before {
+            content: '●';
+            color: var(--primary);
+            font-size: 1.5em;
+        }
+
+        nav {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            list-style: none;
+        }
+
+        .nav-links button {
+            padding: 12px 25px;
+            border: none;
+            background: var(--light);
+            color: var(--dark);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links button:hover {
+            background: var(--primary);
+            color: var(--white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+        }
+
+        .nav-links button.active {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            box-shadow: 0 5px 15px rgba(37,99,235,0.3);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .card h3 {
+            color: var(--primary);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card h4 {
+            color: var(--secondary);
+            font-size: 1.3em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 4px solid var(--white);
+            box-shadow: 0 0 0 4px var(--light);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 20px;
+            width: 2px;
+            height: calc(100% + 10px);
+            background: var(--light);
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        .period {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .project-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .project-title {
+            font-size: 1.5em;
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-subtitle {
+            color: var(--gray);
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+
+        .tech-tag {
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-category {
+            background: linear-gradient(135deg, var(--light) 0%, var(--white) 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border-top: 4px solid var(--primary);
+        }
+
+        .skill-category h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 8px;
+            background: var(--white);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .skill-item::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--white);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .expandable-section {
+            margin: 20px 0;
+        }
+
+        .expand-button {
+            background: var(--light);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            color: var(--primary);
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .expand-button:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .expand-button::after {
+            content: '▼';
+            transition: transform 0.3s ease;
+        }
+
+        .expand-button.active::after {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 20px;
+        }
+
+        .expandable-content.active {
+            max-height: 10000px;
+            padding: 20px;
+        }
+
+        footer {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .architecture-diagram {
+            background: var(--light);
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .diagram-box {
+            display: inline-block;
+            background: var(--white);
+            padding: 15px 25px;
+            border-radius: 8px;
+            margin: 10px;
+            border: 2px solid var(--primary);
+            font-weight: 600;
+        }
+
+        .arrow {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 1.5em;
+            margin: 0 10px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                flex-direction: column;
+            }
+
+            .nav-links button {
+                width: 100%;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-image">JN</div>
+                    <div style="margin-top: 20px;">
+                        <div style="font-size: 0.9em; color: var(--gray);">
+                            <strong>Langues</strong><br>
+                            🇫🇷 Français (Courant)<br>
+                            🇱🇧 Libanais (Maternel)<br>
+                            🇬🇧 Anglais (Base)
+                        </div>
+                    </div>
+                </div>
+                <div class="info-section">
+                    <h1>Joe Nammour</h1>
+                    <h2>Ingénieur Informatique Industrielle | Développeur Full-Stack | Spécialiste IoT & Systèmes Embarqués</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">Avenue Charles Quint, 18, Ganshoren</div>
+                        <div class="contact-item">+32 492 44 81 43</div>
+                        <div class="contact-item">45704@etu.he2b.be</div>
+                        <div class="contact-item">Né le 27/04/1998 à Ixelles</div>
+                        <div class="contact-item">Nationalité: Belge</div>
+                        <div class="contact-item">Bruxelles, Belgique</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul class="nav-links">
+                <li><button class="active" onclick="showSection('profil')">Profil</button></li>
+                <li><button onclick="showSection('etudes')">Études</button></li>
+                <li><button onclick="showSection('competences')">Compétences</button></li>
+                <li><button onclick="showSection('projets')">Projets Majeurs</button></li>
+                <li><button onclick="showSection('experience')">Expérience</button></li>
+                <li><button onclick="showSection('loisirs')">Loisirs</button></li>
+            </ul>
+        </nav>
+
+        <!-- Le contenu complet sera dans un message séparé car trop long -->
+        <div id="profil" class="content-section active">
+            <div class="card">
+                <h3>👨‍💻 Profil Professionnel</h3>
+                <p style="font-size: 1.1em; line-height: 1.8; color: var(--dark);">
+                    Ingénieur informatique industrielle passionné par l'innovation technologique et les systèmes intelligents. Fort d'une expertise approfondie en développement logiciel, IoT, réalité augmentée et intelligence artificielle, je conçois des solutions techniques complexes alliant créativité et rigueur. Mon parcours académique à l'HE2B (ESI/ISIB) m'a permis de développer une vision holistique des systèmes industriels modernes, de la conception à l'implémentation.
+                </p>
+
+                <div class="stats-grid" style="margin-top: 30px;">
+                    <div class="stat-card">
+                        <div class="stat-number">7+</div>
+                        <div class="stat-label">Années d'études</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Projets réalisés</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Technologies maîtrisées</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Langues parlées</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h4>🎯 Domaines d'expertise</h4>
+                    <ul class="feature-list">
+                        <li>Développement d'applications mobiles (Flutter/Dart) et web (React, ASP.NET Core)</li>
+                        <li>Systèmes embarqués et IoT (Arduino, Raspberry Pi, ESP32, Pozyx UWB)</li>
+                        <li>Réalité augmentée et virtuelle (Unity, Unreal Engine, Vuforia)</li>
+                        <li>Intelligence artificielle et Machine Learning (NLP, systèmes comportementaux)</li>
+                        <li>Automatisation industrielle (STEP7, TIA Portal, LabVIEW, RoboDK)</li>
+                        <li>Bases de données et architectures distribuées (PostgreSQL, MongoDB, MySQL)</li>
+                        <li>Protocoles industriels (MQTT, wMBus, UWB, IRDA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <h3 style="margin-bottom: 20px; color: var(--primary);">📬 Me Contacter</h3>
+            <div class="contact-info" style="max-width: 600px; margin: 0 auto;">
+                <div class="contact-item" style="font-size: 1.1em;">📧 45704@etu.he2b.be</div>
+                <div class="contact-item" style="font-size: 1.1em;">📱 +32 492 44 81 43</div>
+                <div class="contact-item" style="font-size: 1.1em;">📍 Avenue Charles Quint, 18, Ganshoren</div>
+                <div class="contact-item" style="font-size: 1.1em;">🇧🇪 Bruxelles, Belgique</div>
+            </div>
+            <p style="margin-top: 30px; color: var(--gray); font-size: 0.9em;">
+                Disponible pour opportunités professionnelles et collaborations techniques
+            </p>
+            <p style="margin-top: 10px; color: var(--gray); font-size: 0.9em;">
+                © 2025 Joe Nammour - Tous droits réservés
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => section.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.nav-links button');
+            buttons.forEach(button => button.classList.remove('active'));
+
+            document.getElementById(sectionId).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleExpand(button) {
+            const content = button.nextElementSibling;
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
