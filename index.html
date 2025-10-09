@@ -483,7 +483,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
             // Fermer le menu mobile après la sélection
-            if (window.innerWidth <= 768) {
+            if (window.innerWidth <= 1020) {
                 const nav = document.getElementById('mainNav');
                 nav.classList.remove('menu-open');
             }
@@ -499,7 +499,7 @@
             const nav = document.getElementById('mainNav');
             const isClickInsideNav = nav.contains(event.target);
             
-            if (!isClickInsideNav && nav.classList.contains('menu-open') && window.innerWidth <= 768) {
+            if (!isClickInsideNav && nav.classList.contains('menu-open') && window.innerWidth <= 1020) {
                 nav.classList.remove('menu-open');
             }
         });

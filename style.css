@@ -360,14 +360,170 @@ nav {
     transform: translateY(0);
 }
 
-
-/* RESPONSIVE DESIGN pour les nouveaux éléments */
-@media (max-width: 992px) {
-    .project-layout {
-        grid-template-columns: 1fr;
+@media (max-width: 1020px) {
+        nav {
+        padding: 0;
+        margin-bottom: 15px;
+        position: fixed;
+        top: auto;
+        bottom: 20px;
+        right: 20px;
+        left: auto;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        box-shadow: 0 8px 25px rgba(37,99,235,0.4);
+        z-index: 1000;
+        transition: all 0.3s ease;
     }
-    .project-media {
-        order: -1; /* Met les images au-dessus du texte sur mobile */
+
+    nav.menu-open {
+        width: 280px;
+        height: auto;
+        border-radius: 20px;
+        padding: 20px;
+        background: var(--white);
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    nav.menu-open .nav-links {
+        display: flex;
+    }
+
+    .nav-links button {
+        padding: 12px 20px;
+        font-size: 0.95em;
+        width: 100%;
+        text-align: left;
+        border-radius: 10px;
+    }
+
+    /* Bouton hamburger pour mobile */
+    .mobile-menu-toggle {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 30px;
+        height: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0;
+    }
+
+    nav:not(.menu-open) .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .mobile-menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: var(--white);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+    }
+
+    nav.menu-open .mobile-menu-toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+        background: var(--primary);
+    }
+
+    nav.menu-open .mobile-menu-toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    nav.menu-open .mobile-menu-toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -7px);
+        background: var(--primary);
+    }
+
+    nav.menu-open .mobile-menu-toggle {
+        display: flex;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        transform: none;
+    }
+
+    /* Titre du menu sur mobile */
+    .mobile-menu-title {
+        display: none;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 1.1em;
+        margin-bottom: 5px;
+    }
+
+    nav.menu-open .mobile-menu-title {
+        display: block;
+    }
+
+    /* Animation d'ouverture du menu */
+    @keyframes menuSlideIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    nav.menu-open .nav-links {
+        animation: menuSlideIn 0.3s ease;
+    }
+
+    /* Effet de pulsation sur le bouton flottant */
+    @keyframes pulse {
+        0%, 100% {
+            box-shadow: 0 8px 25px rgba(37,99,235,0.4);
+        }
+        50% {
+            box-shadow: 0 8px 35px rgba(37,99,235,0.6);
+        }
+    }
+
+    nav:not(.menu-open) {
+        animation: pulse 2s infinite;
+    }
+
+    /* Badge de notification (optionnel) */
+    nav::after {
+        content: '6';
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background: var(--warning);
+        color: var(--white);
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75em;
+        font-weight: bold;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    nav.menu-open::after {
+        display: none;
     }
 }
 
@@ -642,171 +798,6 @@ footer {
         font-size: 0.85em;
     }
 
-    nav {
-        padding: 0;
-        margin-bottom: 15px;
-        position: fixed;
-        top: auto;
-        bottom: 20px;
-        right: 20px;
-        left: auto;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--primary), var(--secondary));
-        box-shadow: 0 8px 25px rgba(37,99,235,0.4);
-        z-index: 1000;
-        transition: all 0.3s ease;
-    }
-
-    nav.menu-open {
-        width: 280px;
-        height: auto;
-        border-radius: 20px;
-        padding: 20px;
-        background: var(--white);
-    }
-
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-    }
-
-    nav.menu-open .nav-links {
-        display: flex;
-    }
-
-    .nav-links button {
-        padding: 12px 20px;
-        font-size: 0.95em;
-        width: 100%;
-        text-align: left;
-        border-radius: 10px;
-    }
-
-    /* Bouton hamburger pour mobile */
-    .mobile-menu-toggle {
-        display: none;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 30px;
-        height: 30px;
-        background: none;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
-        padding: 0;
-    }
-
-    nav:not(.menu-open) .mobile-menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 5px;
-    }
-
-    .mobile-menu-toggle span {
-        display: block;
-        width: 24px;
-        height: 3px;
-        background: var(--white);
-        border-radius: 2px;
-        transition: all 0.3s ease;
-    }
-
-    nav.menu-open .mobile-menu-toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(7px, 7px);
-        background: var(--primary);
-    }
-
-    nav.menu-open .mobile-menu-toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    nav.menu-open .mobile-menu-toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -7px);
-        background: var(--primary);
-    }
-
-    nav.menu-open .mobile-menu-toggle {
-        display: flex;
-        position: absolute;
-        top: 15px;
-        right: 15px;
-        transform: none;
-    }
-
-    /* Titre du menu sur mobile */
-    .mobile-menu-title {
-        display: none;
-        color: var(--primary);
-        font-weight: 700;
-        font-size: 1.1em;
-        margin-bottom: 5px;
-    }
-
-    nav.menu-open .mobile-menu-title {
-        display: block;
-    }
-
-    /* Animation d'ouverture du menu */
-    @keyframes menuSlideIn {
-        from {
-            opacity: 0;
-            transform: scale(0.8);
-        }
-        to {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    nav.menu-open .nav-links {
-        animation: menuSlideIn 0.3s ease;
-    }
-
-    /* Effet de pulsation sur le bouton flottant */
-    @keyframes pulse {
-        0%, 100% {
-            box-shadow: 0 8px 25px rgba(37,99,235,0.4);
-        }
-        50% {
-            box-shadow: 0 8px 35px rgba(37,99,235,0.6);
-        }
-    }
-
-    nav:not(.menu-open) {
-        animation: pulse 2s infinite;
-    }
-
-    /* Badge de notification (optionnel) */
-    nav::after {
-        content: '6';
-        position: absolute;
-        top: -5px;
-        right: -5px;
-        background: var(--warning);
-        color: var(--white);
-        width: 24px;
-        height: 24px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 0.75em;
-        font-weight: bold;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    }
-
-    nav.menu-open::after {
-        display: none;
-    }
-
     .card {
         padding: 20px 15px;
         margin-bottom: 15px;
@@ -947,7 +938,7 @@ footer {
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 500px) {
     .profile-image {
         width: 75px;
         height: 75px;
