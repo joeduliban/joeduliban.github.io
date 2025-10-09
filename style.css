@@ -58,6 +58,10 @@ header::before {
     align-items: center;
 }
 
+.lang-short {
+    display: none;
+}
+
 .profile-section {
     text-align: center;
 }
@@ -976,5 +980,12 @@ footer {
 
     .card h3 {
         font-size: 1.2em;
+    }
+
+    .lang-full {
+        display: none;
+    }
+    .lang-short {
+        display: inline;
     }
 }
