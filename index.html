@@ -243,7 +243,105 @@
         <div id="projets" class="content-section">
             <div class="card">
                 <h3>🚀 Projets Personnels et Réalisations</h3>
+
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Planète AR Interactive : Simulation d'Écosystème en Réalité Augmentée</h4>
+                    <p class="project-subtitle">Un microcosme virtuel sur une sphère physique, où climat et vie artificielle sont influencés par la géolocalisation du monde réel.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Ce projet ambitieux fusionne la réalité augmentée et l'intelligence artificielle pour créer une simulation de planète interactive. À l'aide d'un smartphone, les utilisateurs observent une civilisation virtuelle évoluer sur une sphère physique. L'originalité réside dans l'intégration d'un système climatique dynamique basé sur la technologie de localisation UWB (Pozyx) et le protocole MQTT, où la position physique de "tags" représentant la planète et le soleil influence directement la météo, la topographie et le comportement des habitants dans le monde virtuel.</p>
+                            <div class="highlight-box">
+                                <h4>Fonctionnalités Clés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Reconnaissance d'Objet 3D :</strong> Utilisation de Vuforia Model Target pour un tracking AR robuste de la sphère physique.</li>
+                                    <li><strong>IA Comportementale :</strong> Les habitants (créés sur Blender et Unity) suivent des cycles jour/nuit, exercent des métiers (jardinier, bûcheron, garde) et interagissent socialement grâce à des arbres de comportement et de la logique floue.</li>
+                                    <li><strong>Climat Dynamique :</strong> La position relative de capteurs UWB (planète/soleil) modifie en temps réel le climat de la simulation (zones chaudes/froides), déformant le terrain et affectant la végétation.</li>
+                                    <li><strong>Cycle de Vie :</strong> Une civilisation virtuelle qui naît, se développe, construit des habitations et peut même lancer un programme spatial après 300 ans d'évolution simulée.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <div class="project-image-placeholder">Image du rendu de la planète dans Unity</div>
+                            <div class="project-image-placeholder">Schéma de l'arbre de comportement de l'IA</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Vuforia (AR)</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">IA (Behavior Trees)</span>
+                        <span class="tech-tag">Logique Floue</span>
+                        <span class="tech-tag">Pozyx (UWB)</span>
+                        <span class="tech-tag">MQTT</span>
+                    </div>
                 </div>
+
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Fabrique de Fake News : IA, Corrélation et Désinformation</h4>
+                    <p class="project-subtitle">Un générateur de titres fallacieux pour démontrer les dangers de la confusion entre corrélation et causalité, basé sur les données de Google Trends et des modèles NLP.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Ce projet met en lumière la facilité avec laquelle des informations trompeuses peuvent être générées en exploitant des corrélations statistiques. Le programme analyse les données de popularité de recherche via Google Trends (Pytrends) pour trouver des liens statistiquement significatifs (mais sans rapport causal) entre différents mots-clés. Ensuite, un modèle de traitement du langage naturel (NLP), initialement un GPT-2 puis un GPT-4, est utilisé pour générer un titre de "fake news" plausible en combinant ces mots corrélés, illustrant ainsi comment les données peuvent être manipulées.</p>
+                            <div class="highlight-box">
+                                <h4>Fonctionnalités Clés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Analyse de Corrélation :</strong> Utilisation de la corrélation de Spearman pour identifier des relations non linéaires entre les tendances de recherche de mots-clés.</li>
+                                    <li><strong>Génération de Texte par IA :</strong> Intégration de modèles NLP pré-entraînés (GPT-2, GPT-4) via la bibliothèque Hugging Face Transformers pour créer des titres de news cohérents et trompeurs.</li>
+                                    <li><strong>Acquisition de Données :</strong> Connexion à l'API de Google Trends via Pytrends pour récupérer des données de recherche en temps réel.</li>
+                                    <li><strong>Visualisation :</strong> Emploi de Matplotlib pour afficher des graphiques des tendances de recherche des mots corrélés, renforçant l'illusion d'un lien réel.</li>
+                                </ul>
+                            </div>
+                        </div>
+                         <div class="project-media">
+                            <div class="project-image-placeholder">Exemple de matrice de corrélation</div>
+                            <div class="project-image-placeholder">Titre de fake news généré par l'IA</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">IA (NLP)</span>
+                        <span class="tech-tag">GPT-4</span>
+                        <span class="tech-tag">Hugging Face</span>
+                        <span class="tech-tag">PyTorch</span>
+                        <span class="tech-tag">Google Trends API</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">Matplotlib</span>
+                    </div>
+                </div>
+
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Système de Supervision par Mouvements avec Kinect</h4>
+                    <p class="project-subtitle">Contrôle d'un robot LEGO Mindstorms EV3 par des gestes et des postures corporelles, capturés par une Kinect et interprétés via LabVIEW.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Ce projet d'interfaçage industriel explore le contrôle d'équipements par le mouvement humain. Une caméra Kinect est utilisée pour capturer le squelette 3D d'un opérateur en temps réel. Le logiciel LabVIEW, via la librairie Kinesthesia, analyse les coordonnées des articulations ("bones") pour reconnaître des postures spécifiques. Chaque posture (bras levés, bras tendus, etc.) est mappée à une commande (avancer, reculer, tourner, tirer) qui est ensuite transmise en Bluetooth à un robot mobile LEGO Mindstorms EV3. Le robot est également équipé d'un capteur à ultrasons pour l'évitement d'obstacles.</p>
+                             <div class="highlight-box">
+                                <h4>Fonctionnalités Clés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Capture de Mouvement 3D :</strong> Utilisation du capteur de profondeur de la Kinect pour obtenir les positions X, Y, Z de 20 articulations du corps.</li>
+                                    <li><strong>Reconnaissance de Postures :</strong> Programmation sous LabVIEW pour définir des conditions sur les positions des membres (ex: si la main droite a une coordonnée Y > 0.4, déclencher une action).</li>
+                                    <li><strong>Contrôle Robotique :</strong> Pilotage des moteurs du LEGO Mindstorms EV3 (roues et canon lanceur de billes) en fonction des postures détectées.</li>
+                                    <li><strong>Sécurité Intégrée :</strong> Un capteur à ultrasons sur le robot prévient les collisions en détectant les obstacles à moins de 20 cm.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <div class="project-image-placeholder">Interface de contrôle dans LabVIEW</div>
+                            <div class="project-image-placeholder">Photo du robot LEGO Mindstorms EV3</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">LabVIEW</span>
+                        <span class="tech-tag">Microsoft Kinect</span>
+                        <span class="tech-tag">LEGO Mindstorms EV3</span>
+                        <span class="tech-tag">Traitement d'image</span>
+                        <span class="tech-tag">Bluetooth</span>
+                        <span class="tech-tag">Robotique</span>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <div id="experience" class="content-section">
@@ -382,6 +480,23 @@
             button.classList.toggle('active');
             content.classList.toggle('active');
         }
+
+        // Script pour l'animation au scroll
+        document.addEventListener("DOMContentLoaded", () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show-anim');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            const hiddenElements = document.querySelectorAll('.hidden-anim');
+            hiddenElements.forEach(el => observer.observe(el));
+        });
     </script>
 </body>
 </html>

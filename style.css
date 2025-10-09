@@ -256,7 +256,7 @@ nav {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 25px;
+    margin-bottom: 40px; /* Espace augmenté entre les projets */
     border-left: 5px solid var(--primary);
     transition: all 0.3s ease;
 }
@@ -267,7 +267,7 @@ nav {
 }
 
 .project-title {
-    font-size: 1.5em;
+    font-size: 1.6em; /* Titre plus grand */
     color: var(--primary);
     margin-bottom: 10px;
     font-weight: 700;
@@ -276,23 +276,91 @@ nav {
 .project-subtitle {
     color: var(--gray);
     font-style: italic;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.project-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 25px;
+    margin-bottom: 20px;
+}
+
+.project-description p {
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.project-media {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.project-image-placeholder {
+    background-color: #d1d5db;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray);
+    font-style: italic;
+    font-size: 0.9em;
+    min-height: 200px;
+    border: 2px dashed #9ca3af;
+    text-align: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.project-image-placeholder:hover {
+    border-color: var(--primary);
+    background-color: #e5e7eb;
 }
 
 .project-tech {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin: 15px 0;
+    margin-top: 20px;
 }
 
 .tech-tag {
     background: var(--primary);
     color: var(--white);
-    padding: 5px 12px;
+    padding: 6px 14px; /* Tags un peu plus grands */
     border-radius: 20px;
-    font-size: 0.85em;
+    font-size: 0.9em;
     font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: var(--primary-dark);
+}
+
+/* STYLES POUR L'ANIMATION AU SCROLL */
+.hidden-anim {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.show-anim {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* RESPONSIVE DESIGN pour les nouveaux éléments */
+@media (max-width: 992px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+    }
+    .project-media {
+        order: -1; /* Met les images au-dessus du texte sur mobile */
+    }
 }
 
 .skills-grid {
