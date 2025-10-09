@@ -36,14 +36,20 @@
             </div>
         </header>
 
-        <nav>
+        <nav id="mainNav">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu de navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="mobile-menu-title">📋 Navigation</div>
             <ul class="nav-links">
-                <li><button class="active" onclick="showSection('profil')">Profil</button></li>
-                <li><button onclick="showSection('etudes')">Études</button></li>
-                <li><button onclick="showSection('competences')">Compétences</button></li>
-                <li><button onclick="showSection('projets')">Projets Majeurs</button></li>
-                <li><button onclick="showSection('experience')">Expérience</button></li>
-                <li><button onclick="showSection('loisirs')">Loisirs</button></li>
+                <li><button class="active" onclick="showSection('profil')">👨‍💻 Profil</button></li>
+                <li><button onclick="showSection('etudes')">🎓 Études</button></li>
+                <li><button onclick="showSection('competences')">💻 Compétences</button></li>
+                <li><button onclick="showSection('projets')">🚀 Projets Majeurs</button></li>
+                <li><button onclick="showSection('experience')">💼 Expérience</button></li>
+                <li><button onclick="showSection('loisirs')">🎯 Loisirs</button></li>
             </ul>
         </nav>
 
@@ -473,7 +479,28 @@
             document.getElementById(sectionId).classList.add('active');
             event.target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
+            
+            // Fermer le menu mobile après la sélection
+            if (window.innerWidth <= 768) {
+                const nav = document.getElementById('mainNav');
+                nav.classList.remove('menu-open');
+            }
         }
+
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('menu-open');
+        }
+
+        // Fermer le menu si on clique en dehors
+        document.addEventListener('click', function(event) {
+            const nav = document.getElementById('mainNav');
+            const isClickInsideNav = nav.contains(event.target);
+            
+            if (!isClickInsideNav && nav.classList.contains('menu-open') && window.innerWidth <= 768) {
+                nav.classList.remove('menu-open');
+            }
+        });
 
         function toggleExpand(button) {
             const content = button.nextElementSibling;
