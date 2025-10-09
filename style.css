@@ -268,7 +268,7 @@ nav {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border-radius: 15px;
     padding: 25px;
-    margin-bottom: 40px; /* Espace augmenté entre les projets */
+    margin-bottom: 40px;
     border-left: 5px solid var(--primary);
     transition: all 0.3s ease;
 }
@@ -279,7 +279,7 @@ nav {
 }
 
 .project-title {
-    font-size: 1.6em; /* Titre plus grand */
+    font-size: 1.6em;
     color: var(--primary);
     margin-bottom: 10px;
     font-weight: 700;
@@ -341,7 +341,7 @@ nav {
 .tech-tag {
     background: var(--primary);
     color: var(--white);
-    padding: 6px 14px; /* Tags un peu plus grands */
+    padding: 6px 14px;
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 500;
@@ -352,7 +352,6 @@ nav {
     background: var(--primary-dark);
 }
 
-/* STYLES POUR L'ANIMATION AU SCROLL */
 .hidden-anim {
     opacity: 0;
     transform: translateY(30px);
@@ -409,7 +408,6 @@ nav {
         border-radius: 10px;
     }
 
-    /* Bouton hamburger pour mobile */
     .mobile-menu-toggle {
         display: none;
         position: absolute;
@@ -464,7 +462,6 @@ nav {
         transform: none;
     }
 
-    /* Titre du menu sur mobile */
     .mobile-menu-title {
         display: none;
         color: var(--primary);
@@ -477,7 +474,6 @@ nav {
         display: block;
     }
 
-    /* Animation d'ouverture du menu */
     @keyframes menuSlideIn {
         from {
             opacity: 0;
@@ -493,7 +489,6 @@ nav {
         animation: menuSlideIn 0.3s ease;
     }
 
-    /* Effet de pulsation sur le bouton flottant */
     @keyframes pulse {
         0%, 100% {
             box-shadow: 0 8px 25px rgba(37,99,235,0.4);
@@ -507,7 +502,6 @@ nav {
         animation: pulse 2s infinite;
     }
 
-    /* Badge de notification (optionnel) */
     nav::after {
         content: '6';
         position: absolute;
@@ -733,7 +727,6 @@ footer {
         margin-bottom: 15px;
     }
 
-    /* Layout mobile optimisé : bulle à gauche, texte à droite */
     .header-content {
         display: grid;
         grid-template-columns: auto 1fr;
@@ -943,26 +936,81 @@ footer {
 }
 
 @media (max-width: 500px) {
+    .header-content {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto auto;
+        gap: 15px;
+    }
+
+    .profile-section {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        grid-row: 1;
+        grid-column: 1;
+    }
+
     .profile-image {
         width: 75px;
         height: 75px;
         font-size: 30px;
+        margin: 0;
     }
 
-    .profile-languages {
-        font-size: 0.7em !important;
+    .profile-section > div:not(.profile-image) {
+        display: none;
+    }
+
+    .info-section {
+        display: contents;
+    }
+
+    .profile-text-wrapper {
+        grid-row: 1;
+        grid-column: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        justify-content: center;
     }
 
     .info-section h1 {
         font-size: 1.15em;
+        text-align: left;
+        margin: 0;
     }
 
     .info-section h2 {
         font-size: 0.75em;
+        text-align: left;
+        margin: 0;
+    }
+
+    .contact-info {
+        grid-row: 2;
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        margin-top: 0;
+        width: 100%;
     }
 
     .contact-item {
         font-size: 0.8em;
+    }
+
+    header::after {
+        content: '🇫🇷 Français (C) • 🇱🇧 Libanais (M) • 🇬🇧 Anglais (B)';
+        display: block;
+        text-align: center;
+        font-size: 0.8em;
+        color: var(--gray);
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid var(--light);
     }
 
     .nav-links button {
