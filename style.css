@@ -743,23 +743,45 @@ footer .contact-item a:hover .icon {
     transform: scale(1.1);
 }
 
-.footer-contact-grid {
-    max-width: 800px;
-    margin: 0 auto;
+.footer-contact-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-    justify-items: start;
+    grid-template-columns: auto auto;
+    gap: 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.footer-contact-main,
+.footer-contact-social {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.footer-contact-main .contact-item,
+.footer-contact-social .contact-item {
+    justify-content: flex-start;
+}
+
+.footer-contact-list {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
 }
 
 footer .contact-item {
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 10px;
     font-size: 0.95em;
     color: var(--gray);
-    text-align: left;
-    width: 100%;
+    text-align: center;
 }
 
 footer .contact-item .icon {
@@ -1015,27 +1037,37 @@ footer .contact-item::before {
         margin-bottom: 15px;
     }
 
-    .footer-contact-grid {
-        gap: 12px !important;
+    .footer-contact-list {
+        gap: 10px;
     }
 
     footer .contact-item {
-        font-size: 0.95em !important;
+        font-size: 0.9em !important;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     footer .contact-item a {
         display: flex;
         align-items: center;
         gap: 8px;
+        justify-content: center;
     }
 
     footer .contact-item span {
-        word-break: break-all;
+        word-break: break-word;
     }
 
     footer p {
         font-size: 0.85em;
         margin-top: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .footer-contact-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
     }
 }
 
@@ -1138,13 +1170,18 @@ footer .contact-item::before {
         display: none;
     }
 
-    .footer-contact-grid {
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
+    .footer-contact-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .footer-contact-list {
+        gap: 8px;
     }
 
     footer .contact-item {
         font-size: 0.85em !important;
+        justify-content: center;
     }
 
     footer h3 {
