@@ -11,7 +11,10 @@
         <header>
             <div class="header-content">
                 <div class="profile-section">
-                    <div class="profile-image">JN</div>
+                    <div class="profile-image" id="profileBubble">
+                        <span class="profile-initials">JN</span>
+                        <img class="profile-photo" src="images/profile/profile-photo.jpg" alt="Joe Nammour">
+                    </div>
                     <div style="margin-top: 20px;">
                         <div class="profile-languages" style="font-size: 0.9em; color: var(--gray);">
                             <strong>
@@ -673,7 +676,48 @@
 
             loadProjectImages();
             loadProjectVideos();
+            initProfileFlip();
         });
+
+        function initProfileFlip() {
+            const profileBubble = document.getElementById('profileBubble');
+            
+            // Gestion du hover sur desktop
+            let isHovering = false;
+            
+            profileBubble.addEventListener('mouseenter', () => {
+                isHovering = true;
+                profileBubble.style.transform = 'rotateY(180deg)';
+            });
+            
+            profileBubble.addEventListener('mouseleave', () => {
+                isHovering = false;
+                profileBubble.style.transform = 'rotateY(0deg)';
+            });
+            
+            // Gestion du swipe sur mobile
+            let touchStartX = 0;
+            let touchStartY = 0;
+            let isFlipped = false;
+            
+            profileBubble.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            profileBubble.addEventListener('touchend', (e) => {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const diffX = Math.abs(touchStartX - touchEndX);
+                const diffY = Math.abs(touchStartY - touchEndY);
+                
+                // Vérifier que c'est bien un swipe horizontal
+                if (diffX > 50 && diffX > diffY) {
+                    isFlipped = !isFlipped;
+                    profileBubble.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+                }
+            }, { passive: true });
+        }
 
         function loadProjectVideos() {
             const videoContainers = document.querySelectorAll('.project-video-container[data-youtube]');
