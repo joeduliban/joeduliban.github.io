@@ -682,7 +682,6 @@
         function initProfileFlip() {
             const profileBubble = document.getElementById('profileBubble');
             
-            // Gestion du hover sur desktop
             let isHovering = false;
             
             profileBubble.addEventListener('mouseenter', () => {
@@ -695,7 +694,6 @@
                 profileBubble.style.transform = 'rotateY(0deg)';
             });
             
-            // Gestion du swipe sur mobile
             let touchStartX = 0;
             let touchStartY = 0;
             let isFlipped = false;
@@ -711,7 +709,6 @@
                 const diffX = Math.abs(touchStartX - touchEndX);
                 const diffY = Math.abs(touchStartY - touchEndY);
                 
-                // Vérifier que c'est bien un swipe horizontal
                 if (diffX > 50 && diffX > diffY) {
                     isFlipped = !isFlipped;
                     profileBubble.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
