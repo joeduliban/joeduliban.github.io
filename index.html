@@ -30,7 +30,7 @@
                         <h2>Ingénieur Informatique Industrielle | Développeur Full-Stack | Spécialiste IoT & Systèmes Embarqués</h2>
                     </div>
                     <div class="contact-info">
-                        <div class="contact-item">Avenue Charles Quint, 18, Ganshoren</div>
+                        <div class="contact-item">Av. Charles Quint, 18, Ganshoren</div>
                         <div class="contact-item">+32 492 44 81 43</div>
                         <div class="contact-item">45704@etu.he2b.be</div>
                         <div class="contact-item">Né le 27/04/1998 à Ixelles</div>
@@ -468,7 +468,7 @@
                 <div class="footer-contact-main">
                     <div class="contact-item" style="font-size: 1.1em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>45704@etu.he2b.be</div>
                     <div class="contact-item" style="font-size: 1.1em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>+32 492 44 81 43</div>
-                    <div class="contact-item" style="font-size: 1.1em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Avenue Charles Quint, 18, Ganshoren, Bruxelles</div>
+                    <div class="contact-item" style="font-size: 1.1em;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>Av. Charles Quint, 18, Ganshoren, Bruxelles</div>
                 </div>
                 <div class="footer-contact-social">
                     <div class="contact-item" style="font-size: 1.1em;">
@@ -512,7 +512,6 @@
             event.target.classList.add('active');
             window.scrollTo({ top: 0, behavior: 'smooth' });
             
-            // Fermer le menu mobile après la sélection
             if (window.innerWidth <= 1020) {
                 const nav = document.getElementById('mainNav');
                 nav.classList.remove('menu-open');
@@ -524,7 +523,6 @@
             nav.classList.toggle('menu-open');
         }
 
-        // Fermer le menu si on clique en dehors
         document.addEventListener('click', function(event) {
             const nav = document.getElementById('mainNav');
             const isClickInsideNav = nav.contains(event.target);
@@ -540,7 +538,6 @@
             content.classList.toggle('active');
         }
 
-        // Script pour l'animation au scroll
         document.addEventListener("DOMContentLoaded", () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -556,7 +553,6 @@
             const hiddenElements = document.querySelectorAll('.hidden-anim');
             hiddenElements.forEach(el => observer.observe(el));
 
-            // Charger les images des projets dynamiquement
             loadProjectImages();
         });
 
@@ -567,28 +563,20 @@
                 const imagePath = placeholder.getAttribute('data-image');
                 const altText = placeholder.textContent;
                 
-                // Créer une image temporaire pour tester si le fichier existe
                 const img = new Image();
                 
                 img.onload = function() {
-                    // L'image existe, on l'affiche
                     placeholder.style.backgroundImage = `url('${imagePath}')`;
                     placeholder.style.backgroundSize = 'cover';
                     placeholder.style.backgroundPosition = 'center';
                     placeholder.style.backgroundColor = 'transparent';
                     placeholder.style.border = 'none';
-                    placeholder.textContent = ''; // Enlever le texte
-                    placeholder.style.cursor = 'pointer'; // Indiquer que c'est cliquable
+                    placeholder.textContent = '';
+                    placeholder.style.cursor = 'pointer';
                     
-                    // Ajouter l'événement de clic pour ouvrir la lightbox
                     placeholder.addEventListener('click', function() {
                         openLightbox(imagePath, altText);
                     });
-                };
-                
-                img.onerror = function() {
-                    // L'image n'existe pas, on garde le placeholder avec le texte
-                    console.log(`Image non trouvée: ${imagePath}`);
                 };
                 
                 img.src = imagePath;
@@ -596,7 +584,6 @@
         }
 
         function openLightbox(imagePath, description) {
-            // Créer l'overlay de la lightbox
             const lightbox = document.createElement('div');
             lightbox.className = 'lightbox-overlay';
             lightbox.innerHTML = `
@@ -614,20 +601,16 @@
             
             document.body.appendChild(lightbox);
             
-            // Empêcher le scroll du body
             document.body.style.overflow = 'hidden';
             
-            // Fermer en cliquant sur l'overlay
             lightbox.addEventListener('click', function(e) {
                 if (e.target === lightbox) {
                     closeLightbox();
                 }
             });
             
-            // Fermer avec la touche Echap
             document.addEventListener('keydown', handleEscapeKey);
             
-            // Animation d'apparition
             setTimeout(() => lightbox.classList.add('active'), 10);
         }
 

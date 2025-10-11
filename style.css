@@ -1148,7 +1148,7 @@ footer .contact-item::before {
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 542px) {
     .footer-contact-container {
         grid-template-columns: 1fr;
         gap: 25px;
