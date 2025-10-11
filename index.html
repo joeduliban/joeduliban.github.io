@@ -74,7 +74,7 @@
                         <div class="stat-label">Années d'études</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">15+</div>
+                        <div class="stat-number">16+</div>
                         <div class="stat-label">Projets réalisés</div>
                     </div>
                     <div class="stat-card">
@@ -423,6 +423,52 @@
                     </div>
                 </div>
 
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Ninja E-Motion : Jeu de Plateforme avec Inversion de Gravité</h4>
+                    <p class="project-subtitle">Jeu mobile primé développé lors de la Brussels Game Jam 2024, combinant mécanique de flip spatial et narration émotionnelle évolutive.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Projet créé en 48 heures lors de la Brussels Game Jam 2024 (1er au 3 mars) sur le thème "FLIP IT". Ce jeu de plateforme met le joueur dans la peau d'un ninja capable de renverser l'espace verticalement d'un simple clic. L'originalité réside dans sa dimension narrative progressive : au fil de l'aventure, le ninja raconte son histoire de vie, et ses émotions influencent directement l'atmosphère visuelle et le gameplay. Le projet a remporté un prix lors de la game jam.</p>
+                            <div class="highlight-box">
+                                <h4>Fonctionnalités Clés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Mécanique de Flip Spatial :</strong> Inversion de la gravité en temps réel au clic gauche, transformant le haut en bas et inversement pour résoudre des puzzles de plateforme.</li>
+                                    <li><strong>Narration Émotionnelle :</strong> L'histoire personnelle du ninja se dévoile progressivement, ses émotions modifiant l'ambiance du jeu (couleurs, musique, difficulté).</li>
+                                    <li><strong>Gameplay Exigeant :</strong> Toute collision avec un obstacle est fatale, nécessitant précision et timing parfait pour progresser.</li>
+                                    <li><strong>Cross-Platform :</strong> Déployé sur Windows, MacOS, Linux et Android, avec version jouable directement dans le navigateur.</li>
+                                    <li><strong>Audio Immersif :</strong> Bande sonore originale et sound design créés spécifiquement pour accompagner l'évolution émotionnelle du personnage.</li>
+                                </ul>
+                            </div>
+                            <div class="highlight-box" style="margin-top: 15px;">
+                                <h4>Équipe et Réalisations</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Prix remporté</strong> lors de la Brussels Game Jam 2024</li>
+                                    <li><strong>Développement accéléré</strong> en 48 heures par une équipe de 6 personnes</li>
+                                    <li><strong>Rôle :</strong> Développeur principal - Programmation des mécaniques de jeu et système de flip spatial</li>
+                                    <li><strong>Collaboration :</strong> Game Designer, Level Designer, Coordinateur, Compositeur et Sound Designer</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <div class="project-video-container" data-youtube="BvnOZsfvLAs">
+                                <div class="video-placeholder">Vidéo gameplay - Ninja E-Motion Trailer</div>
+                            </div>
+                            <div class="project-image-placeholder" data-image="images/projets/ninja-e-motion/prix-gamejam.jpg">Photo du prix remporté à la Brussels Game Jam 2024</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Game Jam</span>
+                        <span class="tech-tag">Gameplay Programming</span>
+                        <span class="tech-tag">Level Design</span>
+                        <span class="tech-tag">Cross-Platform</span>
+                        <span class="tech-tag">Mobile (Android)</span>
+                        <span class="tech-tag">Web Browser</span>
+                        <span class="tech-tag">Windows/Mac/Linux</span>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -622,7 +668,24 @@
             hiddenElements.forEach(el => observer.observe(el));
 
             loadProjectImages();
+            loadProjectVideos();
         });
+
+        function loadProjectVideos() {
+            const videoContainers = document.querySelectorAll('.project-video-container[data-youtube]');
+            
+            videoContainers.forEach(container => {
+                const youtubeId = container.getAttribute('data-youtube');
+                
+                const iframe = document.createElement('iframe');
+                iframe.src = `https://www.youtube.com/embed/${youtubeId}`;
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+                iframe.allowFullscreen = true;
+                
+                container.innerHTML = '';
+                container.appendChild(iframe);
+            });
+        }
 
         function loadProjectImages() {
             const placeholders = document.querySelectorAll('.project-image-placeholder[data-image]');
