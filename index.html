@@ -296,12 +296,12 @@
                     <p class="project-subtitle">Un générateur de titres fallacieux pour démontrer les dangers de la confusion entre corrélation et causalité, basé sur les données de Google Trends et des modèles NLP.</p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Ce projet met en lumière la facilité avec laquelle des informations trompeuses peuvent être générées en exploitant des corrélations statistiques. Le programme analyse les données de popularité de recherche via Google Trends (Pytrends) pour trouver des liens statistiquement significatifs (mais sans rapport causal) entre différents mots-clés. Ensuite, un modèle de traitement du langage naturel (NLP), initialement un GPT-2 puis un GPT-4, est utilisé pour générer un titre de "fake news" plausible en combinant ces mots corrélés, illustrant ainsi comment les données peuvent être manipulées.</p>
+                            <p>Ce projet met en lumière la facilité avec laquelle des informations trompeuses peuvent être générées en exploitant des corrélations statistiques. Le programme analyse les données de popularité de recherche via Google Trends (Pytrends) pour trouver des liens statistiquement significatifs (mais sans rapport causal) entre différents mots-clés. Ensuite, un modèle de traitement du langage naturel (NLP), initialement mon propre model puis un GPT-2 ensuite un GPT-4, est utilisé pour générer un titre de "fake news" plausible en combinant ces mots corrélés, illustrant ainsi comment les données peuvent être manipulées.</p>
                             <div class="highlight-box">
                                 <h4>Fonctionnalités Clés</h4>
                                 <ul class="feature-list">
                                     <li><strong>Analyse de Corrélation :</strong> Utilisation de la corrélation de Spearman pour identifier des relations non linéaires entre les tendances de recherche de mots-clés.</li>
-                                    <li><strong>Génération de Texte par IA :</strong> Intégration de modèles NLP pré-entraînés (GPT-2, GPT-4) via la bibliothèque Hugging Face Transformers pour créer des titres de news cohérents et trompeurs.</li>
+                                    <li><strong>Génération de Texte par IA :</strong> Intégration de modèles NLP pré-entraînés (GPT-2, GPT-4) via la bibliothèque Hugging Face Transformers et de modèle NLP entrainé aux journaux pour créer des titres de news cohérents et trompeurs.</li>
                                     <li><strong>Acquisition de Données :</strong> Connexion à l'API de Google Trends via Pytrends pour récupérer des données de recherche en temps réel.</li>
                                     <li><strong>Visualisation :</strong> Emploi de Matplotlib pour afficher des graphiques des tendances de recherche des mots corrélés, renforçant l'illusion d'un lien réel.</li>
                                 </ul>
@@ -352,6 +352,74 @@
                         <span class="tech-tag">Traitement d'image</span>
                         <span class="tech-tag">Bluetooth</span>
                         <span class="tech-tag">Robotique</span>
+                    </div>
+                </div>
+
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Super Smash Bros - ESI Remake : Jeu de Combat en C++ et Unreal Engine</h4>
+                    <p class="project-subtitle">Remake d'un jeu de fighting/platformer développé en C++ avec Unreal Engine, intégrant modélisation 3D, animations et intelligence artificielle.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Projet collaboratif ambitieux de recréation d'un jeu de combat de type Super Smash Bros utilisant le moteur Unreal Engine. Ce projet combine programmation C++ avancée et scripting Blueprint pour créer un jeu de combat multijoueur complet avec des personnages animés en 3D. Le gameplay repose sur l'éjection des adversaires hors des limites de l'arène plutôt que sur un système de points de vie classique, avec un système de pourcentage de dégâts qui augmente la force de propulsion.</p>
+                            <div class="highlight-box">
+                                <h4>Fonctionnalités Clés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Architecture Hybride C++/Blueprint :</strong> Utilisation complémentaire du C++ pour la logique de jeu et des Blueprints pour l'interfaçage visuel et les animations.</li>
+                                    <li><strong>Système de Combat Complet :</strong> Attaques variées (sol/air), système de bouclier avec brisure, esquives, saisies et projections avec contrôle à la manette.</li>
+                                    <li><strong>Modélisation et Animation 3D :</strong> Personnages créés sur Blender avec skeleton, skeletal mesh et physics asset. Animations personnalisées via des montages avec hitbox dynamiques.</li>
+                                    <li><strong>Framework Unreal Engine :</strong> Exploitation des classes GameInstance, GameMode, GameState, PlayerController et AIController pour une architecture de jeu professionnelle.</li>
+                                    <li><strong>Blueprint Animation :</strong> AnimGraph complexe gérant les transitions d'états (course, saut) et événements liés aux inputs joueurs via l'interface Action.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/banner.jpg">Banner de la réplique de Smash Bros</div>
+                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/gameplay-screenshot.png">Capture d'écran du gameplay</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">C++</span>
+                        <span class="tech-tag">Unreal Engine</span>
+                        <span class="tech-tag">Blueprint</span>
+                        <span class="tech-tag">Blender</span>
+                        <span class="tech-tag">Modélisation 3D</span>
+                        <span class="tech-tag">Animation 3D</span>
+                        <span class="tech-tag">Game Design</span>
+                        <span class="tech-tag">Multijoueur</span>
+                    </div>
+                </div>
+
+                <div class="project-card hidden-anim">
+                    <h4 class="project-title">Algorithmes d'Intelligence Artificielle : Recherche, Jeux et Contraintes</h4>
+                    <p class="project-subtitle">Implémentation et analyse comparative d'algorithmes d'IA pour la résolution de problèmes complexes : pathfinding, jeux de stratégie et optimisation sous contraintes.</p>
+                    <div class="project-layout">
+                        <div class="project-description">
+                            <p>Projet de recherche approfondi explorant différentes familles d'algorithmes d'intelligence artificielle appliqués à trois domaines distincts. Le premier volet porte sur les algorithmes de recherche de chemin optimal (BFS, A*, recherche gloutonne, beam search) pour simuler des trajets d'ambulances dans un environnement urbain avec obstacles. Le deuxième volet implémente l'algorithme Minimax avec optimisation Alpha-Bêta pour créer une IA compétitive dans le jeu Bomberman sous Unity. Le troisième volet utilise la programmation par contraintes (python-constraint) pour optimiser les horaires de vols et l'allocation des portes d'embarquement dans un aéroport.</p>
+                            <div class="highlight-box">
+                                <h4>Algorithmes Implémentés</h4>
+                                <ul class="feature-list">
+                                    <li><strong>Recherche de Chemin :</strong> BFS (recherche en largeur), A* (heuristique + coût), recherche gloutonne, beam search, UCS (coût uniforme), Branch and Bound pour pathfinding optimal.</li>
+                                    <li><strong>Minimax avec Alpha-Bêta :</strong> IA de jeu pour Bomberman en C# sous Unity, avec évaluation stratégique du plateau (sécurité, bonus, adversaires, explosions de bombes).</li>
+                                    <li><strong>Programmation par Contraintes :</strong> Résolution de problèmes d'optimisation aéroportuaire avec gestion des contraintes de non-chevauchement, priorité, position, taille et correspondances.</li>
+                                    <li><strong>Analyse Comparative :</strong> Étude des performances (temps de calcul, mémoire, optimalité) de chaque algorithme selon les contraintes du problème.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="project-media">
+                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/pathfinding-results.png">Résultats des algorithmes de pathfinding</div>
+                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/bomberman-minimax.png">IA Minimax dans Bomberman</div>
+                        </div>
+                    </div>
+                    <div class="project-tech">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">Algorithmes de Recherche</span>
+                        <span class="tech-tag">A*</span>
+                        <span class="tech-tag">Minimax</span>
+                        <span class="tech-tag">Alpha-Bêta</span>
+                        <span class="tech-tag">Programmation par Contraintes</span>
+                        <span class="tech-tag">python-constraint</span>
                     </div>
                 </div>
 
