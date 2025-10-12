@@ -1,10 +1,7 @@
-/* SÉLECTEUR DE LANGUE RÉTRACTABLE */
-
 .language-selector-wrapper {
     position: fixed;
     top: 20px;
-    /* Positionné pour ne montrer que le bouton flèche (largeur 50px) */
-    right: -175px; 
+    right: -155px;
     z-index: 1002;
     display: flex;
     align-items: center;
@@ -13,21 +10,19 @@
     border-radius: 8px 0 0 8px;
     box-shadow: -5px 5px 20px rgba(0, 0, 0, 0.15);
     height: 72px;
-    overflow: hidden; /* Empêche le contenu de déborder pendant l'animation */
+    overflow: hidden;
 }
 
-/* État ouvert : le panneau coulisse pour tout montrer */
 .language-selector-wrapper.open {
     right: 0;
 }
 
-/* Bouton pour ouvrir/fermer (la partie avec la flèche) */
 .language-toggle-button {
     background: transparent;
     border: none;
-    border-right: 1px solid #e2e8f0; /* Petite séparation */
+    border-right: 1px solid #e2e8f0;
     height: 100%;
-    width: 50px;
+    width: 45px;
     padding: 0;
     cursor: pointer;
     display: flex;
@@ -40,7 +35,6 @@
     background-color: rgba(0, 0, 0, 0.03);
 }
 
-/* La flèche elle-même */
 .language-toggle-arrow {
     font-size: 1.5em;
     color: var(--primary);
@@ -48,69 +42,63 @@
     animation: arrowBounce 2s ease-in-out infinite;
 }
 
-/* Animation de la flèche (identique à l'originale) */
 @keyframes arrowBounce {
-    0%, 100% {
-        transform: translateX(0);
-    }
-    50% {
-        transform: translateX(-5px);
-    }
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(-5px); }
 }
 
-/* Rotation de la flèche quand le panneau est ouvert */
 .language-selector-wrapper.open .language-toggle-arrow {
     transform: rotate(180deg);
     animation: none;
 }
 
-/* Barre contenant les boutons de langue FR, GB, ES */
 .language-bar {
     display: flex;
     align-items: center;
-    padding: 0 5px; /* Espace autour des boutons */
-    position: relative; /* Pour l'effet de ruban */
+    padding: 0 10px;
+    gap: 8px;
+    position: relative;
 }
 
-/* Style des boutons de langue */
 .language-bar button {
     background: transparent;
-    border: none;
-    border-radius: 6px;
-    padding: 8px 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 2px;
     cursor: pointer;
-    font-size: 1.1em;
-    font-weight: 600;
-    color: var(--dark-gray);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    margin: 0 2px;
+    width: 40px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.language-bar button svg {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
 }
 
 .language-bar button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    border-color: var(--secondary);
+    border-width: 3px;
 }
 
 .language-bar button.active {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--white);
-    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+    border-color: var(--primary);
+    border-width: 3px;
+    box-shadow: 0 0 10px rgba(37, 99, 235, 0.5);
 }
 
 /* Responsive */
 @media (max-width:1467px) {
-    .language-selector-wrapper {
-        right: -155px; /* Ajusté pour la taille mobile */
-    }
     .language-toggle-button {
         width: 35px;
     }
-    .language-bar button {
-        padding: 6px 10px;
-        font-size: 1em;
-    }
 }
 
-/* Cache le sélecteur de langue flottant en mode mobile */
 @media (max-width: 1020px) {
     .language-selector-wrapper {
         display: none;
