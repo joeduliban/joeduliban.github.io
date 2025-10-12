@@ -1,24 +1,13 @@
 function initProfileFlip() {
     const profileBubble = document.getElementById('profileBubble');
+    const flipper = profileBubble ? profileBubble.querySelector('.profile-bubble-flipper') : null;
     
-    if (!profileBubble) return;
-    
-    let isHovering = false;
-    
-    profileBubble.addEventListener('mouseenter', () => {
-        isHovering = true;
-        profileBubble.style.transform = 'rotateY(180deg)';
-    });
-    
-    profileBubble.addEventListener('mouseleave', () => {
-        isHovering = false;
-        profileBubble.style.transform = 'rotateY(0deg)';
-    });
+    if (!profileBubble || !flipper) return;
     
     let touchStartX = 0;
     let touchStartY = 0;
     let isFlipped = false;
-    
+
     profileBubble.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
         touchStartY = e.changedTouches[0].screenY;
@@ -29,10 +18,10 @@ function initProfileFlip() {
         const touchEndY = e.changedTouches[0].screenY;
         const diffX = Math.abs(touchStartX - touchEndX);
         const diffY = Math.abs(touchStartY - touchEndY);
-        
+
         if (diffX > 50 && diffX > diffY) {
             isFlipped = !isFlipped;
-            profileBubble.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
+            flipper.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
         }
     }, { passive: true });
 }
