@@ -4,10 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Joe Nammour - Ingénieur Informatique Industrielle</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
+    <!-- Sélecteur de langue -->
+    <div class="language-selector">
+        <button onclick="changeLanguage('fr')" class="active" data-lang="fr" title="Français">🇫🇷</button>
+        <button onclick="changeLanguage('en')" data-lang="en" title="English">🇬🇧</button>
+        <button onclick="changeLanguage('es')" data-lang="es" title="Español">🇪🇸</button>
+    </div>
+
     <div class="container">
+        <!-- Header -->
         <header>
             <div class="header-content">
                 <div class="profile-section">
@@ -19,26 +34,26 @@
                         <div class="profile-languages" style="font-size: 0.9em; color: var(--gray);">
                             <strong>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
-                                Langues
+                                <span data-i18n="languages"></span>
                             </strong><br>
-                            Français (Courant)<br>
-                            Libanais (Maternel)<br>
-                            Anglais (Base)
+                            <span data-i18n="french"></span><br>
+                            <span data-i18n="lebanese"></span><br>
+                            <span data-i18n="english"></span>
                         </div>
                     </div>
                 </div>
                 <div class="info-section">
                     <div class="profile-text-wrapper">
                         <h1>Joe Nammour</h1>
-                        <h2>Ingénieur Informatique Industrielle | Développeur Full-Stack | Spécialiste IoT & Systèmes Embarqués</h2>
+                        <h2 data-i18n="jobTitle"></h2>
                     </div>
                     <div class="contact-info">
                         <div class="contact-item">Av. Charles Quint, 18, Ganshoren</div>
                         <div class="contact-item">+32 492 44 81 43</div>
                         <div class="contact-item">45704@etu.he2b.be</div>
-                        <div class="contact-item">Né le 27/04/1998 à Ixelles</div>
-                        <div class="contact-item">Nationalité: Belge</div>
-                        <div class="contact-item">Bruxelles, Belgique</div>
+                        <div class="contact-item" data-i18n="born"></div>
+                        <div class="contact-item" data-i18n="nationality"></div>
+                        <div class="contact-item" data-i18n="location"></div>
                     </div>
                 </div>
             </div>
@@ -52,54 +67,46 @@
             </button>
             <div class="mobile-menu-title">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
-                Navigation
+                <span data-i18n="navMobileTitle"></span>
             </div>
             <ul class="nav-links">
-                <li><button class="active" onclick="showSection('profil')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profil</button></li>
-                <li><button onclick="showSection('etudes')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>Études</button></li>
-                <li><button onclick="showSection('competences')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>Compétences</button></li>
-                <li><button onclick="showSection('projets')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Projets Majeurs</button></li>
-                <li><button onclick="showSection('experience')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Expérience</button></li>
-                <li><button onclick="showSection('loisirs')"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Loisirs</button></li>
+                <li><button class="active" onclick="showSection('profil', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span data-i18n="navProfile"></span></button></li>
+                <li><button onclick="showSection('etudes', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span data-i18n="navStudies"></span></button></li>
+                <li><button onclick="showSection('competences', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><span data-i18n="navSkills"></span></button></li>
+                <li><button onclick="showSection('projets', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><span data-i18n="navProjects"></span></button></li>
+                <li><button onclick="showSection('experience', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span data-i18n="navExperience"></span></button></li>
+                <li><button onclick="showSection('loisirs', this)"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span data-i18n="navHobbies"></span></button></li>
             </ul>
         </nav>
 
         <div id="profil" class="content-section active">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>Profil Professionnel</h3>
-                <p style="font-size: 1.1em; line-height: 1.8; color: var(--dark);">
-                    Ingénieur informatique industrielle passionné par l'innovation technologique et les systèmes intelligents. Fort d'une expertise approfondie en développement logiciel, IoT, réalité augmentée et intelligence artificielle, je conçois des solutions techniques complexes alliant créativité et rigueur. Mon parcours académique à l'HE2B (ESI/ISIB) m'a permis de développer une vision holistique des systèmes industriels modernes, de la conception à l'implémentation.
-                </p>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg><span data-i18n="profileTitle"></span></h3>
+                <p style="font-size: 1.1em; line-height: 1.8; color: var(--dark);" data-i18n="profileDescription"></p>
 
                 <div class="stats-grid" style="margin-top: 30px;">
                     <div class="stat-card">
                         <div class="stat-number">7+</div>
-                        <div class="stat-label">Années d'études</div>
+                        <div class="stat-label" data-i18n="yearsStudy"></div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">16+</div>
-                        <div class="stat-label">Projets réalisés</div>
+                        <div class="stat-label" data-i18n="projectsCompleted"></div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">10+</div>
-                        <div class="stat-label">Technologies maîtrisées</div>
+                        <div class="stat-label" data-i18n="technologiesMastered"></div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-number">3</div>
-                        <div class="stat-label">Langues parlées</div>
+                        <div class="stat-label" data-i18n="languagesSpoken"></div>
                     </div>
                 </div>
 
                 <div class="highlight-box" style="margin-top: 30px;">
-                    <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Domaines d'expertise</h4>
+                    <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span data-i18n="expertiseDomains"></span></h4>
                     <ul class="feature-list">
-                        <li>Développement d'applications mobiles (Flutter/Dart) et web (React, ASP.NET Core)</li>
-                        <li>Systèmes embarqués et IoT (Arduino, Raspberry Pi, ESP32, Pozyx UWB)</li>
-                        <li>Réalité augmentée et virtuelle (Unity, Unreal Engine, Vuforia)</li>
-                        <li>Intelligence artificielle et Machine Learning (NLP, systèmes comportementaux)</li>
-                        <li>Automatisation industrielle (STEP7, TIA Portal, LabVIEW, RoboDK)</li>
-                        <li>Bases de données et architectures distribuées (PostgreSQL, MongoDB, MySQL)</li>
-                        <li>Protocoles industriels (MQTT, wMBus, UWB, IRDA)</li>
+                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
                     </ul>
                 </div>
             </div>
@@ -107,53 +114,35 @@
 
         <div id="etudes" class="content-section">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>Formation Académique</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg><span data-i18n="studiesTitle"></span></h3>
                 
                 <div class="timeline-item">
-                    <span class="period">2022 - Présent</span>
-                    <h4>Master Ingénieur Informatique Industrielle</h4>
-                    <p><strong>HE2B ISIB (Institut Supérieur Industriel de Bruxelles)</strong></p>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Formation avancée couvrant l'intégration des technologies industrielles modernes, l'automatisation, les systèmes embarqués et l'IoT. Spécialisation dans les systèmes intelligents, la robotique et les architectures distribuées.
-                    </p>
+                    <span class="period" data-i18n="masterPeriod"></span>
+                    <h4 data-i18n="masterTitle"></h4>
+                    <p><strong data-i18n="masterSchool"></strong></p>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="masterDescription"></p>
                     <ul class="feature-list" style="margin-top: 15px;">
-                        <li>Systèmes de contrôle industriel et automatisation</li>
-                        <li>Réseaux industriels et protocoles de communication</li>
-                        <li>Intelligence artificielle appliquée aux systèmes industriels</li>
-                        <li>Gestion de projets techniques complexes</li>
-                        <li>Réalité augmentée, Machine learning et Outils 3D</li>
+                        <li></li><li></li><li></li><li></li><li></li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="period">2017 - 2022</span>
-                    <h4>Bachelier Informatique Industrielle</h4>
-                    <p><strong>HE2B ESI (École Supérieure d'Informatique)</strong></p>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Formation complète en informatique industrielle combinant programmation, électronique, automatisme et systèmes embarqués. Développement de compétences transversales en gestion de projets et travail en équipe.
-                    </p>
+                    <span class="period" data-i18n="bachelorPeriod"></span>
+                    <h4 data-i18n="bachelorTitle"></h4>
+                    <p><strong data-i18n="bachelorSchool"></strong></p>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="bachelorDescription"></p>
                     <ul class="feature-list" style="margin-top: 15px;">
-                        <li>Programmation orientée objet et développement logiciel</li>
-                        <li>Électronique et microcontrôleurs (Arduino, Raspberry Pi)</li>
-                        <li>Bases de données et systèmes d'information</li>
-                        <li>Réseaux et sécurité informatique (Cisco)</li>
-                        <li>Analyse et modélisation (UML, Merise)</li>
-                        <li>Interfaçage d'équipements industriels</li>
-                        <li>Projets de bureaux d'études (Fabrique de fake news)</li>
+                        <li></li><li></li><li></li><li></li><li></li><li></li><li></li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="period">2015 - 2017</span>
-                    <h4>CESS + Licence en Technicien Informatique</h4>
-                    <p><strong>Institut Technique René Cartigny</strong></p>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Formation technique approfondie en maintenance informatique, réseaux et administration systèmes. Acquisition des fondamentaux en électronique et systèmes embarqués.
-                    </p>
+                    <span class="period" data-i18n="technicianPeriod"></span>
+                    <h4 data-i18n="technicianTitle"></h4>
+                    <p><strong data-i18n="technicianSchool"></strong></p>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="technicianDescription"></p>
                     <ul class="feature-list" style="margin-top: 15px;">
-                        <li>Maintenance et dépannage de systèmes informatiques</li>
-                        <li>Configuration et administration de réseaux</li>
-                        <li>Initiation à la programmation et aux systèmes d'exploitation</li>
+                        <li></li><li></li><li></li>
                     </ul>
                 </div>
             </div>
@@ -161,97 +150,48 @@
 
         <div id="competences" class="content-section">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>Compétences Techniques Détaillées</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg><span data-i18n="skillsTitle"></span></h3>
                 
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>Langages de Programmation</h4>
-                        <div class="skill-item">Java (Orienté Objet, Android)</div>
-                        <div class="skill-item">JavaScript/TypeScript (Full-Stack)</div>
-                        <div class="skill-item">C / C++ (Systèmes embarqués)</div>
-                        <div class="skill-item">C# (Unity, .NET Core)</div>
-                        <div class="skill-item">Python (IA, Automation, IoT)</div>
-                        <div class="skill-item">Dart (Flutter Mobile)</div>
+                        <h4 data-i18n="skillCategories.programming"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Développement Mobile & Web</h4>
-                        <div class="skill-item">Flutter/Dart (Applications multiplateformes)</div>
-                        <div class="skill-item">React/React Native (Frontend moderne)</div>
-                        <div class="skill-item">ASP.NET Core (Backend robuste)</div>
-                        <div class="skill-item">Node.js (Serveurs temps réel)</div>
-                        <div class="skill-item">HTML5/CSS3 (Interfaces responsives)</div>
-                        <div class="skill-item">PrimeReact (UI Components)</div>
+                        <h4 data-i18n="skillCategories.webMobile"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Systèmes Embarqués & IoT</h4>
-                        <div class="skill-item">Arduino (Prototypage électronique)</div>
-                        <div class="skill-item">Raspberry Pi (Python/C++)</div>
-                        <div class="skill-item">ESP32 (Wi-Fi, DeepSleep, capteurs)</div>
-                        <div class="skill-item">Pozyx UWB (Localisation précise)</div>
-                        <div class="skill-item">Capteurs MQ135, CCS811, BMX280</div>
-                        <div class="skill-item">MQTT (Protocole IoT)</div>
+                        <h4 data-i18n="skillCategories.embedded"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Réalité Augmentée & 3D</h4>
-                        <div class="skill-item">Unity (Jeux, AR, Simulations)</div>
-                        <div class="skill-item">Unreal Engine (C++, Blueprints)</div>
-                        <div class="skill-item">Vuforia (Reconnaissance AR)</div>
-                        <div class="skill-item">Blender (Modélisation 3D)</div>
-                        <div class="skill-item">Three.js (Visualisation web 3D)</div>
+                        <h4 data-i18n="skillCategories.ar3d"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Intelligence Artificielle</h4>
-                        <div class="skill-item">NLP (GPT-2, GPT-4, Transformers)</div>
-                        <div class="skill-item">PyTorch & Keras (Deep Learning)</div>
-                        <div class="skill-item">TensorFlow (Réseaux neuronaux)</div>
-                        <div class="skill-item">Systèmes comportementaux (Behavior Trees)</div>
-                        <div class="skill-item">Logique floue (Fuzzy Logic)</div>
+                        <h4 data-i18n="skillCategories.ai"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Bases de Données</h4>
-                        <div class="skill-item">PostgreSQL (Relationnel avancé)</div>
-                        <div class="skill-item">MySQL (SGBD classique)</div>
-                        <div class="skill-item">MongoDB (NoSQL)</div>
-                        <div class="skill-item">SQLite (Embarqué mobile)</div>
-                        <div class="skill-item">Optimisation de requêtes</div>
+                        <h4 data-i18n="skillCategories.database"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Automatisation Industrielle</h4>
-                        <div class="skill-item">LabVIEW (Instrumentation virtuelle)</div>
-                        <div class="skill-item">STEP7 / TIA Portal (Automates Siemens)</div>
-                        <div class="skill-item">RoboDK (Programmation robotique)</div>
-                        <div class="skill-item">Kinect (Capture de mouvement)</div>
-                        <div class="skill-item">LEGO Mindstorms EV3</div>
+                        <h4 data-i18n="skillCategories.industrial"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Analyse & Modélisation</h4>
-                        <div class="skill-item">UML (Diagrammes de classes, séquences)</div>
-                        <div class="skill-item">Merise (MCD, MTD, MCT, MTT)</div>
-                        <div class="skill-item">Architecture logicielle</div>
-                        <div class="skill-item">Design Patterns</div>
+                        <h4 data-i18n="skillCategories.analysis"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Réseaux & Systèmes</h4>
-                        <div class="skill-item">Linux (Administration, Bash)</div>
-                        <div class="skill-item">Cisco (Configuration réseau)</div>
-                        <div class="skill-item">Protocoles RF (wMBus, UWB, 868MHz)</div>
-                        <div class="skill-item">API REST & WebSockets</div>
+                        <h4 data-i18n="skillCategories.network"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
-
                     <div class="skill-category">
-                        <h4>Outils & Méthodologies</h4>
-                        <div class="skill-item">Git (Versionnage de code)</div>
-                        <div class="skill-item">Docker (Conteneurisation)</div>
-                        <div class="skill-item">Agile/Scrum (Gestion de projets)</div>
-                        <div class="skill-item">CI/CD (Intégration continue)</div>
+                        <h4 data-i18n="skillCategories.tools"></h4>
+                        <div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div><div class="skill-item"></div>
                     </div>
                 </div>
             </div>
@@ -259,246 +199,179 @@
 
         <div id="projets" class="content-section">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>Projets Personnels et Réalisations</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg><span data-i18n="projectsTitle"></span></h3>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Planète AR Interactive : Simulation d'Écosystème en Réalité Augmentée</h4>
-                    <p class="project-subtitle">Un microcosme virtuel sur une sphère physique, où climat et vie artificielle sont influencés par la géolocalisation du monde réel.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Ce projet ambitieux fusionne la réalité augmentée et l'intelligence artificielle pour créer une simulation de planète interactive. À l'aide d'un smartphone, les utilisateurs observent une civilisation virtuelle évoluer sur une sphère physique. L'originalité réside dans l'intégration d'un système climatique dynamique basé sur la technologie de localisation UWB (Pozyx) et le protocole MQTT, où la position physique de "tags" représentant la planète et le soleil influence directement la météo, la topographie et le comportement des habitants dans le monde virtuel.</p>
+                            <p></p>
                             <div class="highlight-box">
-                                <h4>Fonctionnalités Clés</h4>
+                                <h4 data-i18n="keyFeatures"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Reconnaissance d'Objet 3D :</strong> Utilisation de Vuforia Model Target pour un tracking AR robuste de la sphère physique.</li>
-                                    <li><strong>IA Comportementale :</strong> Les habitants (créés sur Blender et Unity) suivent des cycles jour/nuit, exercent des métiers (jardinier, bûcheron, garde) et interagissent socialement grâce à des arbres de comportement et de la logique floue.</li>
-                                    <li><strong>Climat Dynamique :</strong> La position relative de capteurs UWB (planète/soleil) modifie en temps réel le climat de la simulation (zones chaudes/froides), déformant le terrain et affectant la végétation.</li>
-                                    <li><strong>Cycle de Vie :</strong> Une civilisation virtuelle qui naît, se développe, construit des habitations et peut même lancer un programme spatial après 300 ans d'évolution simulée.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project-media">
                             <div class="project-video-container" data-youtube="P_Nk80Gds68">
-                                <div class="video-placeholder">Vidéo Démonstration - Planète AR Interactive</div>
+                                <div class="video-placeholder"></div>
                             </div>
-                            <div class="project-image-placeholder" data-image="images/projets/planete-ar/vuforia-3d.png">Image du rendu de la maquette 3D dans Vuforia</div>
+                            <div class="project-image-placeholder" data-image="images/projets/planete-ar/vuforia-3d.png"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">Unity</span>
-                        <span class="tech-tag">Vuforia (AR)</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Blender</span>
-                        <span class="tech-tag">IA (Behavior Trees)</span>
-                        <span class="tech-tag">Logique Floue</span>
-                        <span class="tech-tag">Pozyx (UWB)</span>
-                        <span class="tech-tag">MQTT</span>
+                        <span class="tech-tag">Unity</span><span class="tech-tag">Vuforia (AR)</span><span class="tech-tag">C#</span><span class="tech-tag">Blender</span><span class="tech-tag">AI (Behavior Trees)</span><span class="tech-tag">Fuzzy Logic</span><span class="tech-tag">Pozyx (UWB)</span><span class="tech-tag">MQTT</span>
                     </div>
                 </div>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Fabrique de Fake News : IA, Corrélation et Désinformation</h4>
-                    <p class="project-subtitle">Un générateur de titres fallacieux pour démontrer les dangers de la confusion entre corrélation et causalité, basé sur les données de Google Trends et des modèles NLP.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Ce projet met en lumière la facilité avec laquelle des informations trompeuses peuvent être générées en exploitant des corrélations statistiques. Le programme analyse les données de popularité de recherche via Google Trends (Pytrends) pour trouver des liens statistiquement significatifs (mais sans rapport causal) entre différents mots-clés. Ensuite, un modèle de traitement du langage naturel (NLP), initialement mon propre model puis un GPT-2 ensuite un GPT-4, est utilisé pour générer un titre de "fake news" plausible en combinant ces mots corrélés, illustrant ainsi comment les données peuvent être manipulées.</p>
+                            <p></p>
                             <div class="highlight-box">
-                                <h4>Fonctionnalités Clés</h4>
+                                <h4 data-i18n="keyFeatures"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Analyse de Corrélation :</strong> Utilisation de la corrélation de Spearman pour identifier des relations non linéaires entre les tendances de recherche de mots-clés.</li>
-                                    <li><strong>Génération de Texte par IA :</strong> Intégration de modèles NLP pré-entraînés (GPT-2, GPT-4) via la bibliothèque Hugging Face Transformers et de modèle NLP entrainé aux journaux pour créer des titres de news cohérents et trompeurs.</li>
-                                    <li><strong>Acquisition de Données :</strong> Connexion à l'API de Google Trends via Pytrends pour récupérer des données de recherche en temps réel.</li>
-                                    <li><strong>Visualisation :</strong> Emploi de Matplotlib pour afficher des graphiques des tendances de recherche des mots corrélés, renforçant l'illusion d'un lien réel.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
-                         <div class="project-media">
-                            <div class="project-image-placeholder" data-image="images/projets/fake-news/correlation-matrix.png">Exemple de matrice de corrélation</div>
-                            <div class="project-image-placeholder" data-image="images/projets/fake-news/ia-generated-title.png">Titre de fake news généré par l'IA</div>
+                        <div class="project-media">
+                            <div class="project-image-placeholder" data-image="images/projets/fake-news/correlation-matrix.png"></div>
+                            <div class="project-image-placeholder" data-image="images/projets/fake-news/ia-generated-title.png"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">IA (NLP)</span>
-                        <span class="tech-tag">GPT-4</span>
-                        <span class="tech-tag">Hugging Face</span>
-                        <span class="tech-tag">PyTorch</span>
-                        <span class="tech-tag">Google Trends API</span>
-                        <span class="tech-tag">Pandas</span>
-                        <span class="tech-tag">Matplotlib</span>
+                        <span class="tech-tag">Python</span><span class="tech-tag">AI (NLP)</span><span class="tech-tag">GPT-4</span><span class="tech-tag">Hugging Face</span><span class="tech-tag">PyTorch</span><span class="tech-tag">Google Trends API</span><span class="tech-tag">Pandas</span><span class="tech-tag">Matplotlib</span>
                     </div>
                 </div>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Système de Supervision par Mouvements avec Kinect</h4>
-                    <p class="project-subtitle">Contrôle d'un robot LEGO Mindstorms EV3 par des gestes et des postures corporelles, capturés par une Kinect et interprétés via LabVIEW.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Ce projet d'interfaçage industriel explore le contrôle d'équipements par le mouvement humain. Une caméra Kinect est utilisée pour capturer le squelette 3D d'un opérateur en temps réel. Le logiciel LabVIEW, via la librairie Kinesthesia, analyse les coordonnées des articulations ("bones") pour reconnaître des postures spécifiques. Chaque posture (bras levés, bras tendus, etc.) est mappée à une commande (avancer, reculer, tourner, tirer) qui est ensuite transmise en Bluetooth à un robot mobile LEGO Mindstorms EV3. Le robot est également équipé d'un capteur à ultrasons pour l'évitement d'obstacles.</p>
-                             <div class="highlight-box">
-                                <h4>Fonctionnalités Clés</h4>
+                            <p></p>
+                            <div class="highlight-box">
+                                <h4 data-i18n="keyFeatures"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Capture de Mouvement 3D :</strong> Utilisation du capteur de profondeur de la Kinect pour obtenir les positions X, Y, Z de 20 articulations du corps.</li>
-                                    <li><strong>Reconnaissance de Postures :</strong> Programmation sous LabVIEW pour définir des conditions sur les positions des membres (ex: si la main droite a une coordonnée Y > 0.4, déclencher une action).</li>
-                                    <li><strong>Contrôle Robotique :</strong> Pilotage des moteurs du LEGO Mindstorms EV3 (roues et canon lanceur de billes) en fonction des postures détectées.</li>
-                                    <li><strong>Sécurité Intégrée :</strong> Un capteur à ultrasons sur le robot prévient les collisions en détectant les obstacles à moins de 20 cm.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project-media">
                             <div class="project-video-container" data-youtube="-aW7KElE3SY">
-                                <div class="video-placeholder">Vidéo Démonstration et explicatif - Kinect Mindstorms</div>
+                                <div class="video-placeholder"></div>
                             </div>
-                            <div class="project-image-placeholder" data-image="images/projets/kinect/lego-ev3-robot.jpg">Photo du robot LEGO Mindstorms EV3</div>
+                            <div class="project-image-placeholder" data-image="images/projets/kinect/lego-ev3-robot.jpg"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">LabVIEW</span>
-                        <span class="tech-tag">Microsoft Kinect</span>
-                        <span class="tech-tag">LEGO Mindstorms EV3</span>
-                        <span class="tech-tag">Traitement d'image</span>
-                        <span class="tech-tag">Bluetooth</span>
-                        <span class="tech-tag">Robotique</span>
+                        <span class="tech-tag">LabVIEW</span><span class="tech-tag">Microsoft Kinect</span><span class="tech-tag">LEGO Mindstorms EV3</span><span class="tech-tag">Image processing</span><span class="tech-tag">Bluetooth</span><span class="tech-tag">Robotics</span>
                     </div>
                 </div>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Super Smash Bros - ESI Remake : Jeu de Combat en C++ et Unreal Engine</h4>
-                    <p class="project-subtitle">Remake d'un jeu de fighting/platformer développé en C++ avec Unreal Engine, intégrant modélisation 3D, animations et intelligence artificielle.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Projet collaboratif ambitieux de recréation d'un jeu de combat de type Super Smash Bros utilisant le moteur Unreal Engine. Ce projet combine programmation C++ avancée et scripting Blueprint pour créer un jeu de combat multijoueur complet avec des personnages animés en 3D. Le gameplay repose sur l'éjection des adversaires hors des limites de l'arène plutôt que sur un système de points de vie classique, avec un système de pourcentage de dégâts qui augmente la force de propulsion.</p>
+                            <p></p>
                             <div class="highlight-box">
-                                <h4>Fonctionnalités Clés</h4>
+                                <h4 data-i18n="keyFeatures"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Architecture Hybride C++/Blueprint :</strong> Utilisation complémentaire du C++ pour la logique de jeu et des Blueprints pour l'interfaçage visuel et les animations.</li>
-                                    <li><strong>Système de Combat Complet :</strong> Attaques variées (sol/air), système de bouclier avec brisure, esquives, saisies et projections avec contrôle à la manette.</li>
-                                    <li><strong>Modélisation et Animation 3D :</strong> Personnages créés sur Blender avec skeleton, skeletal mesh et physics asset. Animations personnalisées via des montages avec hitbox dynamiques.</li>
-                                    <li><strong>Framework Unreal Engine :</strong> Exploitation des classes GameInstance, GameMode, GameState, PlayerController et AIController pour une architecture de jeu professionnelle.</li>
-                                    <li><strong>Blueprint Animation :</strong> AnimGraph complexe gérant les transitions d'états (course, saut) et événements liés aux inputs joueurs via l'interface Action.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project-media">
-                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/banner.jpg">Banner de la réplique de Smash Bros</div>
-                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/gameplay-screenshot.png">Capture d'écran du gameplay</div>
+                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/banner.jpg"></div>
+                            <div class="project-image-placeholder" data-image="images/projets/smash-bros/gameplay-screenshot.png"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">C++</span>
-                        <span class="tech-tag">Unreal Engine</span>
-                        <span class="tech-tag">Blueprint</span>
-                        <span class="tech-tag">Blender</span>
-                        <span class="tech-tag">Modélisation 3D</span>
-                        <span class="tech-tag">Animation 3D</span>
-                        <span class="tech-tag">Game Design</span>
-                        <span class="tech-tag">Multijoueur</span>
+                        <span class="tech-tag">C++</span><span class="tech-tag">Unreal Engine</span><span class="tech-tag">Blueprint</span><span class="tech-tag">Blender</span><span class="tech-tag">3D modeling</span><span class="tech-tag">3D animation</span><span class="tech-tag">Game Design</span><span class="tech-tag">Multiplayer</span>
                     </div>
                 </div>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Algorithmes d'Intelligence Artificielle : Recherche, Jeux et Contraintes</h4>
-                    <p class="project-subtitle">Implémentation et analyse comparative d'algorithmes d'IA pour la résolution de problèmes complexes : pathfinding, jeux de stratégie et optimisation sous contraintes.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Projet de recherche approfondi explorant différentes familles d'algorithmes d'intelligence artificielle appliqués à trois domaines distincts. Le premier volet porte sur les algorithmes de recherche de chemin optimal (BFS, A*, recherche gloutonne, beam search) pour simuler des trajets d'ambulances dans un environnement urbain avec obstacles. Le deuxième volet implémente l'algorithme Minimax avec optimisation Alpha-Bêta pour créer une IA compétitive dans le jeu Bomberman sous Unity. Le troisième volet utilise la programmation par contraintes (python-constraint) pour optimiser les horaires de vols et l'allocation des portes d'embarquement dans un aéroport.</p>
+                            <p></p>
                             <div class="highlight-box">
-                                <h4>Algorithmes Implémentés</h4>
+                                <h4 data-i18n="implementedAlgorithms"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Recherche de Chemin :</strong> BFS (recherche en largeur), A* (heuristique + coût), recherche gloutonne, beam search, UCS (coût uniforme), Branch and Bound pour pathfinding optimal.</li>
-                                    <li><strong>Minimax avec Alpha-Bêta :</strong> IA de jeu pour Bomberman en C# sous Unity, avec évaluation stratégique du plateau (sécurité, bonus, adversaires, explosions de bombes).</li>
-                                    <li><strong>Programmation par Contraintes :</strong> Résolution de problèmes d'optimisation aéroportuaire avec gestion des contraintes de non-chevauchement, priorité, position, taille et correspondances.</li>
-                                    <li><strong>Analyse Comparative :</strong> Étude des performances (temps de calcul, mémoire, optimalité) de chaque algorithme selon les contraintes du problème.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project-media">
-                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/pathfinding-results.png">Résultats des algorithmes de pathfinding</div>
-                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/bomberman-minimax.png">IA Minimax dans Bomberman</div>
+                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/pathfinding-results.png"></div>
+                            <div class="project-image-placeholder" data-image="images/projets/ia-algorithms/bomberman-minimax.png"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Unity</span>
-                        <span class="tech-tag">Algorithmes de Recherche</span>
-                        <span class="tech-tag">A*</span>
-                        <span class="tech-tag">Minimax</span>
-                        <span class="tech-tag">Alpha-Bêta</span>
-                        <span class="tech-tag">Programmation par Contraintes</span>
-                        <span class="tech-tag">python-constraint</span>
+                        <span class="tech-tag">Python</span><span class="tech-tag">C#</span><span class="tech-tag">Unity</span><span class="tech-tag">Search Algorithms</span><span class="tech-tag">A*</span><span class="tech-tag">Minimax</span><span class="tech-tag">Alpha-Beta</span><span class="tech-tag">Constraint Programming</span><span class="tech-tag">python-constraint</span>
                     </div>
                 </div>
 
                 <div class="project-card hidden-anim">
-                    <h4 class="project-title">Ninja E-Motion : Jeu de Plateforme avec Inversion de Gravité</h4>
-                    <p class="project-subtitle">Jeu mobile primé développé lors de la Brussels Game Jam 2024, combinant mécanique de flip spatial et narration émotionnelle évolutive.</p>
+                    <h4 class="project-title"></h4>
+                    <p class="project-subtitle"></p>
                     <div class="project-layout">
                         <div class="project-description">
-                            <p>Projet créé en 48 heures lors de la Brussels Game Jam 2024 (1er au 3 mars) sur le thème "FLIP IT". Ce jeu de plateforme met le joueur dans la peau d'un ninja capable de renverser l'espace verticalement d'un simple clic. L'originalité réside dans sa dimension narrative progressive : au fil de l'aventure, le ninja raconte son histoire de vie, et ses émotions influencent directement l'atmosphère visuelle et le gameplay. Le projet a remporté un prix lors de la game jam.</p>
+                            <p></p>
                             <div class="highlight-box">
-                                <h4>Fonctionnalités Clés</h4>
+                                <h4 data-i18n="keyFeatures"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Mécanique de Flip Spatial :</strong> Inversion de la gravité en temps réel au clic gauche, transformant le haut en bas et inversement pour résoudre des puzzles de plateforme.</li>
-                                    <li><strong>Narration Émotionnelle :</strong> L'histoire personnelle du ninja se dévoile progressivement, ses émotions modifiant l'ambiance du jeu (couleurs, musique, difficulté).</li>
-                                    <li><strong>Gameplay Exigeant :</strong> Toute collision avec un obstacle est fatale, nécessitant précision et timing parfait pour progresser.</li>
-                                    <li><strong>Cross-Platform :</strong> Déployé sur Windows, MacOS, Linux et Android, avec version jouable directement dans le navigateur.</li>
-                                    <li><strong>Audio Immersif :</strong> Bande sonore originale et sound design créés spécifiquement pour accompagner l'évolution émotionnelle du personnage.</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                             <div class="highlight-box" style="margin-top: 15px;">
-                                <h4>Équipe et Réalisations</h4>
+                                <h4 data-i18n="teamAchievements"></h4>
                                 <ul class="feature-list">
-                                    <li><strong>Prix remporté</strong> lors de la Brussels Game Jam 2024</li>
-                                    <li><strong>Développement accéléré</strong> en 48 heures par une équipe de 6 personnes</li>
-                                    <li><strong>Rôle :</strong> Développeur principal - Programmation des mécaniques de jeu et système de flip spatial</li>
-                                    <li><strong>Collaboration :</strong> Game Designer, Level Designer, Coordinateur, Compositeur et Sound Designer</li>
+                                    <li><strong></strong></li><li><strong></strong></li><li><strong></strong></li><li><strong></strong></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="project-media">
                             <div class="project-video-container" data-youtube="BvnOZsfvLAs">
-                                <div class="video-placeholder">Vidéo gameplay - Ninja E-Motion Trailer</div>
+                                <div class="video-placeholder"></div>
                             </div>
-                            <div class="project-image-placeholder" data-image="images/projets/ninja-e-motion/prix-gamejam.jpg">Photo du prix remporté à la Brussels Game Jam 2024</div>
+                            <div class="project-image-placeholder" data-image="images/projets/ninja-e-motion/prix-gamejam.jpg"></div>
                         </div>
                     </div>
                     <div class="project-tech">
-                        <span class="tech-tag">Unity</span>
-                        <span class="tech-tag">C#</span>
-                        <span class="tech-tag">Game Jam</span>
-                        <span class="tech-tag">Gameplay Programming</span>
-                        <span class="tech-tag">Level Design</span>
-                        <span class="tech-tag">Cross-Platform</span>
-                        <span class="tech-tag">Mobile (Android)</span>
-                        <span class="tech-tag">Web Browser</span>
-                        <span class="tech-tag">Windows/Mac/Linux</span>
+                        <span class="tech-tag">Unity</span><span class="tech-tag">C#</span><span class="tech-tag">Game Jam</span><span class="tech-tag">Gameplay Programming</span><span class="tech-tag">Level Design</span><span class="tech-tag">Cross-Platform</span><span class="tech-tag">Mobile (Android)</span><span class="tech-tag">Web Browser</span><span class="tech-tag">Windows/Mac/Linux</span>
                     </div>
                 </div>
-
             </div>
         </div>
 
+        <!-- Section Expérience -->
         <div id="experience" class="content-section">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>Expérience Professionnelle</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span data-i18n="experienceTitle"></span></h3>
                 
                 <div class="timeline-item">
-                    <span class="period">Stage - Février 2022</span>
-                    <h4>Développeur Full-Stack IoT - OPNS (Saint-Gilles, Bruxelles)</h4>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Conception et développement d'une application complète de gestion d'immeuble intelligent intégrant calorimètres connectés, thermostats Honeywell et capteurs de qualité d'air.
-                    </p>
+                    <span class="period" data-i18n="internshipPeriod"></span>
+                    <h4 data-i18n="internshipTitle"></h4>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="internshipDescription"></p>
                     <div class="highlight-box" style="margin-top: 15px;">
-                        <h4>Réalisations principales</h4>
+                        <h4 data-i18n="mainAchievements"></h4>
                         <ul class="feature-list">
-                            <li>Développement frontend React avec PrimeReact pour interface de gestion multi-locataires</li>
-                            <li>Backend Node.js avec API REST pour communication avec thermostats Honeywell</li>
-                            <li>Intégration PostgreSQL pour stockage et analyse des données de consommation</li>
-                            <li>Bibliothèque C++ avec libcurl pour contrôle des thermostats Evotouch via API Honeywell</li>
-                            <li>Système de déchiffrement AES-128 pour calorimètres wMBus (868 MHz)</li>
-                            <li>Capteur IoT personnalisé ESP32 pour mesure CO2 avec mode DeepSleep optimisé</li>
-                            <li>Configuration RTL-SDR pour réception signaux radiofréquence longue portée</li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
                         </ul>
                     </div>
                     <div class="project-tech" style="margin-top: 15px;">
@@ -514,76 +387,72 @@
                 </div>
 
                 <div class="timeline-item">
-                    <span class="period">Job Étudiant</span>
-                    <h4>Développeur Mobile & Unity - Entreprise Belge</h4>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Développement d'applications mobiles multiplateformes avec Flutter et projets de réalité augmentée/virtuelle sous Unity pour solutions professionnelles.
-                    </p>
+                    <span class="period" data-i18n="studentJobPeriod"></span>
+                    <h4 data-i18n="studentJobTitle"></h4>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="studentJobDescription"></p>
                     <ul class="feature-list" style="margin-top: 15px;">
-                        <li>Applications Flutter/Dart pour Android et iOS</li>
-                        <li>Projets Unity intégrant AR et systèmes interactifs</li>
-                        <li>Optimisation des performances pour appareils mobiles</li>
-                        <li>Collaboration avec équipes techniques et clients</li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
                     </ul>
                 </div>
 
                 <div class="timeline-item">
-                    <span class="period">Bénévolat</span>
-                    <h4>Animateur - Plaine de Jeux pour Enfants</h4>
-                    <p style="margin-top: 10px; line-height: 1.8;">
-                        Animation et encadrement d'activités ludiques et éducatives pour enfants, développant compétences en gestion de groupe et communication.
-                    </p>
+                    <span class="period" data-i18n="volunteerPeriod"></span>
+                    <h4 data-i18n="volunteerTitle"></h4>
+                    <p style="margin-top: 10px; line-height: 1.8;" data-i18n="volunteerDescription"></p>
                 </div>
             </div>
         </div>
 
+        <!-- Section Loisirs -->
         <div id="loisirs" class="content-section">
             <div class="card">
-                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Loisirs et Centres d'Intérêt</h3>
+                <h3><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg><span data-i18n="hobbiesTitle"></span></h3>
                 
                 <div class="skills-grid">
                     <div class="skill-category">
-                        <h4>Activités Sportives</h4>
-                        <div class="skill-item">Marche et randonnée</div>
-                        <div class="skill-item">Fitness et musculation</div>
-                        <div class="skill-item">Sports collectifs</div>
+                        <h4 data-i18n="hobbiesCategories.sports"></h4>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
                     </div>
 
                     <div class="skill-category">
-                        <h4>Activités Intellectuelles</h4>
-                        <div class="skill-item">Jeux de société stratégiques</div>
-                        <div class="skill-item">Échecs et puzzles logiques</div>
-                        <div class="skill-item">Veille technologique continue</div>
+                        <h4 data-i18n="hobbiesCategories.intellectual"></h4>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
                     </div>
 
                     <div class="skill-category">
-                        <h4>Projets Personnels Tech</h4>
-                        <div class="skill-item">Développement de jeux vidéo</div>
-                        <div class="skill-item">Expérimentation IoT et robotique</div>
-                        <div class="skill-item">Modélisation et impression 3D</div>
+                        <h4 data-i18n="hobbiesCategories.tech"></h4>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
                     </div>
 
                     <div class="skill-category">
-                        <h4>Engagement Social</h4>
-                        <div class="skill-item">Animation pour enfants</div>
-                        <div class="skill-item">Partage de connaissances techniques</div>
-                        <div class="skill-item">Mentorat technique</div>
+                        <h4 data-i18n="hobbiesCategories.social"></h4>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
+                        <div class="skill-item"></div>
                     </div>
                 </div>
 
                 <div class="highlight-box" style="margin-top: 30px;">
-                    <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>Philosophie Personnelle</h4>
-                    <p style="line-height: 1.8;">
-                        Passionné par l'apprentissage continu et l'innovation technologique, je cherche constamment à élargir mes compétences et à relever de nouveaux défis techniques. Mon approche combine rigueur scientifique et créativité pour concevoir des solutions élégantes aux problèmes complexes. Je crois fermement en la puissance de la technologie pour améliorer la vie quotidienne et transformer les industries.
-                    </p>
+                    <h4><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg><span data-i18n="personalPhilosophy"></span></h4>
+                    <p style="line-height: 1.8;" data-i18n="philosophyText"></p>
                 </div>
             </div>
         </div>
 
+        <!-- Footer -->
         <footer>
             <h3 style="margin-bottom: 20px; color: var(--primary);">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                Me Contacter
+                <span data-i18n="contactMe"></span>
             </h3>
             <div class="footer-contact-container">
                 <div class="footer-contact-main">
@@ -612,201 +481,17 @@
                     </div>
                 </div>
             </div>
-            <p style="margin-top: 30px; color: var(--gray); font-size: 0.9em;">
-                Disponible pour opportunités professionnelles et collaborations techniques
-            </p>
-            <p style="margin-top: 10px; color: var(--gray); font-size: 0.9em;">
-                © 2025 Joe Nammour - Tous droits réservés
-            </p>
+            <p style="margin-top: 30px; color: var(--gray); font-size: 0.9em;" data-i18n="availableFor"></p>
+            <p style="margin-top: 10px; color: var(--gray); font-size: 0.9em;" data-i18n="copyright"></p>
         </footer>
     </div>
 
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach(section => section.classList.remove('active'));
-
-            const buttons = document.querySelectorAll('.nav-links button');
-            buttons.forEach(button => button.classList.remove('active'));
-
-            document.getElementById(sectionId).classList.add('active');
-            event.target.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            
-            if (window.innerWidth <= 1020) {
-                const nav = document.getElementById('mainNav');
-                nav.classList.remove('menu-open');
-            }
-        }
-
-        function toggleMobileMenu() {
-            const nav = document.getElementById('mainNav');
-            nav.classList.toggle('menu-open');
-        }
-
-        document.addEventListener('click', function(event) {
-            const nav = document.getElementById('mainNav');
-            const isClickInsideNav = nav.contains(event.target);
-            
-            if (!isClickInsideNav && nav.classList.contains('menu-open') && window.innerWidth <= 1020) {
-                nav.classList.remove('menu-open');
-            }
-        });
-
-        function toggleExpand(button) {
-            const content = button.nextElementSibling;
-            button.classList.toggle('active');
-            content.classList.toggle('active');
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('show-anim');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-
-            const hiddenElements = document.querySelectorAll('.hidden-anim');
-            hiddenElements.forEach(el => observer.observe(el));
-
-            loadProjectImages();
-            loadProjectVideos();
-            initProfileFlip();
-        });
-
-        function initProfileFlip() {
-            const profileBubble = document.getElementById('profileBubble');
-            
-            let isHovering = false;
-            
-            profileBubble.addEventListener('mouseenter', () => {
-                isHovering = true;
-                profileBubble.style.transform = 'rotateY(180deg)';
-            });
-            
-            profileBubble.addEventListener('mouseleave', () => {
-                isHovering = false;
-                profileBubble.style.transform = 'rotateY(0deg)';
-            });
-            
-            let touchStartX = 0;
-            let touchStartY = 0;
-            let isFlipped = false;
-            
-            profileBubble.addEventListener('touchstart', (e) => {
-                touchStartX = e.changedTouches[0].screenX;
-                touchStartY = e.changedTouches[0].screenY;
-            }, { passive: true });
-            
-            profileBubble.addEventListener('touchend', (e) => {
-                const touchEndX = e.changedTouches[0].screenX;
-                const touchEndY = e.changedTouches[0].screenY;
-                const diffX = Math.abs(touchStartX - touchEndX);
-                const diffY = Math.abs(touchStartY - touchEndY);
-                
-                if (diffX > 50 && diffX > diffY) {
-                    isFlipped = !isFlipped;
-                    profileBubble.style.transform = isFlipped ? 'rotateY(180deg)' : 'rotateY(0deg)';
-                }
-            }, { passive: true });
-        }
-
-        function loadProjectVideos() {
-            const videoContainers = document.querySelectorAll('.project-video-container[data-youtube]');
-            
-            videoContainers.forEach(container => {
-                const youtubeId = container.getAttribute('data-youtube');
-                
-                const iframe = document.createElement('iframe');
-                iframe.src = `https://www.youtube.com/embed/${youtubeId}`;
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
-                iframe.allowFullscreen = true;
-                
-                container.innerHTML = '';
-                container.appendChild(iframe);
-            });
-        }
-
-        function loadProjectImages() {
-            const placeholders = document.querySelectorAll('.project-image-placeholder[data-image]');
-            
-            placeholders.forEach(placeholder => {
-                const imagePath = placeholder.getAttribute('data-image');
-                const altText = placeholder.textContent;
-                
-                const img = new Image();
-                
-                img.onload = function() {
-                    placeholder.style.backgroundImage = `url('${imagePath}')`;
-                    placeholder.style.backgroundSize = 'cover';
-                    placeholder.style.backgroundPosition = 'center';
-                    placeholder.style.backgroundColor = 'transparent';
-                    placeholder.style.border = 'none';
-                    placeholder.textContent = '';
-                    placeholder.style.cursor = 'pointer';
-                    
-                    placeholder.addEventListener('click', function() {
-                        openLightbox(imagePath, altText);
-                    });
-                };
-                
-                img.src = imagePath;
-            });
-        }
-
-        function openLightbox(imagePath, description) {
-            const lightbox = document.createElement('div');
-            lightbox.className = 'lightbox-overlay';
-            lightbox.innerHTML = `
-                <div class="lightbox-content">
-                    <button class="lightbox-close" onclick="closeLightbox()" aria-label="Fermer">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
-                    </button>
-                    <img src="${imagePath}" alt="${description}">
-                    <p class="lightbox-description">${description}</p>
-                </div>
-            `;
-            
-            document.body.appendChild(lightbox);
-            
-            document.body.style.overflow = 'hidden';
-            
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) {
-                    closeLightbox();
-                }
-            });
-            
-            document.addEventListener('keydown', handleEscapeKey);
-            
-            setTimeout(() => lightbox.classList.add('active'), 10);
-        }
-
-        function closeLightbox() {
-            const lightbox = document.querySelector('.lightbox-overlay');
-            if (lightbox) {
-                lightbox.classList.remove('active');
-                setTimeout(() => {
-                    lightbox.remove();
-                    document.body.style.overflow = '';
-                }, 300);
-            }
-            document.removeEventListener('keydown', handleEscapeKey);
-        }
-
-        function handleEscapeKey(e) {
-            if (e.key === 'Escape') {
-                closeLightbox();
-            }
-        }
-    </script>
+    <!-- JavaScript -->
+    <script src="js/translations.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
