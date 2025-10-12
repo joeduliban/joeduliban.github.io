@@ -1,6 +1,3 @@
-// Gestion des projets : vidéos, images et lightbox
-
-// Chargement des vidéos YouTube
 function loadProjectVideos() {
     const videoContainers = document.querySelectorAll('.project-video-container[data-youtube]');
     
@@ -17,7 +14,6 @@ function loadProjectVideos() {
     });
 }
 
-// Chargement des images des projets
 function loadProjectImages() {
     const placeholders = document.querySelectorAll('.project-image-placeholder[data-image]');
     
@@ -41,11 +37,9 @@ function loadProjectImages() {
                 placeholder.setAttribute('data-description', altText);
             }
             
-            // Retirer l'ancien listener s'il existe
             const newPlaceholder = placeholder.cloneNode(true);
             placeholder.parentNode.replaceChild(newPlaceholder, placeholder);
             
-            // Ajouter le nouveau listener
             newPlaceholder.addEventListener('click', function() {
                 const description = newPlaceholder.getAttribute('data-description');
                 openLightbox(imagePath, description);
@@ -56,7 +50,6 @@ function loadProjectImages() {
     });
 }
 
-// Ouvrir la lightbox
 function openLightbox(imagePath, description) {
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox-overlay';
@@ -87,7 +80,6 @@ function openLightbox(imagePath, description) {
     setTimeout(() => lightbox.classList.add('active'), 10);
 }
 
-// Fermer la lightbox
 function closeLightbox() {
     const lightbox = document.querySelector('.lightbox-overlay');
     if (lightbox) {
@@ -100,14 +92,12 @@ function closeLightbox() {
     document.removeEventListener('keydown', handleEscapeKey);
 }
 
-// Gestion de la touche Escape
 function handleEscapeKey(e) {
     if (e.key === 'Escape') {
         closeLightbox();
     }
 }
 
-// Exposer les fonctions globalement
 window.loadProjectVideos = loadProjectVideos;
 window.loadProjectImages = loadProjectImages;
 window.openLightbox = openLightbox;

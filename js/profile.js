@@ -1,4 +1,3 @@
-// Animation du profil (flip)
 function initProfileFlip() {
     const profileBubble = document.getElementById('profileBubble');
     
@@ -6,7 +5,6 @@ function initProfileFlip() {
     
     let isHovering = false;
     
-    // Gestion du survol souris
     profileBubble.addEventListener('mouseenter', () => {
         isHovering = true;
         profileBubble.style.transform = 'rotateY(180deg)';
@@ -17,7 +15,6 @@ function initProfileFlip() {
         profileBubble.style.transform = 'rotateY(0deg)';
     });
     
-    // Gestion du swipe tactile
     let touchStartX = 0;
     let touchStartY = 0;
     let isFlipped = false;
@@ -40,5 +37,4 @@ function initProfileFlip() {
     }, { passive: true });
 }
 
-// Exposer la fonction globalement
 window.initProfileFlip = initProfileFlip;

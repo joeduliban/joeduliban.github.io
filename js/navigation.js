@@ -1,4 +1,3 @@
-// Gestion de la navigation
 function showSection(sectionId, buttonElement) {
     const sections = document.querySelectorAll('.content-section');
     sections.forEach(section => section.classList.remove('active'));
@@ -21,7 +20,6 @@ function toggleMobileMenu() {
     nav.classList.toggle('menu-open');
 }
 
-// Fermer le menu mobile en cliquant à l'extérieur
 document.addEventListener('click', function(event) {
     const nav = document.getElementById('mainNav');
     const isClickInsideNav = nav.contains(event.target);
@@ -31,6 +29,5 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Exposer les fonctions globalement
 window.showSection = showSection;
 window.toggleMobileMenu = toggleMobileMenu;

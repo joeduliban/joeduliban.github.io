@@ -5,6 +5,7 @@ const translations = {
         french: "Français (Courant)",
         lebanese: "Libanais (Maternel)",
         english: "Anglais (Base)",
+        title: "Ingénieur Informatique Industrielle",
         jobTitle: "Ingénieur Informatique Industrielle | Développeur Full-Stack | Spécialiste IoT & Systèmes Embarqués",
         born: "Né le 27/04/1998 à Ixelles",
         nationality: "Nationalité: Belge",
@@ -248,6 +249,7 @@ const translations = {
         french: "French (Fluent)",
         lebanese: "Lebanese (Native)",
         english: "English (Basic)",
+        title: "Industrial Computer Engineer",
         jobTitle: "Industrial Computer Engineer | Full-Stack Developer | IoT & Embedded Systems Specialist",
         born: "Born on 04/27/1998 in Ixelles",
         nationality: "Nationality: Belgian",
@@ -491,6 +493,7 @@ const translations = {
         french: "Francés (Fluido)",
         lebanese: "Libanés (Nativo)",
         english: "Inglés (Básico)",
+        title: "Ingeniero Informático Industrial",
         jobTitle: "Ingeniero Informático Industrial | Desarrollador Full-Stack | Especialista en IoT y Sistemas Embebidos",
         born: "Nacido el 27/04/1998 en Ixelles",
         nationality: "Nacionalidad: Belga",
@@ -728,192 +731,3 @@ const translations = {
         copyright: "© 2025 Joe Nammour - Todos los derechos reservados"
     }
 };
-
-let currentLang = 'fr';
-
-function changeLanguage(lang) {
-    currentLang = lang;
-    
-    document.querySelectorAll('.language-selector button').forEach(btn => {
-        btn.classList.remove('active');
-    });
-    document.querySelector(`[data-lang="${lang}"]`).classList.add('active');
-    
-    const titles = {
-        fr: "Joe Nammour - Ingénieur Informatique Industrielle",
-        en: "Joe Nammour - Industrial Computer Engineer",
-        es: "Joe Nammour - Ingeniero Informático Industrial"
-    };
-    document.title = titles[lang];
-
-    updateTranslations(lang);
-
-    localStorage.setItem('preferredLanguage', lang);
-}
-
-function updateExpertiseList(t) {
-    const list = document.querySelector('#profil .feature-list');
-    if (list && t.expertiseList) {
-        list.innerHTML = t.expertiseList.map(item => `<li>${item}</li>`).join('');
-    }
-}
-
-function updateStudiesLists(t) {
-    const lists = [
-        { selector: '#etudes .timeline-item:nth-child(2) .feature-list', data: t.masterItems },
-        { selector: '#etudes .timeline-item:nth-child(3) .feature-list', data: t.bachelorItems },
-        { selector: '#etudes .timeline-item:nth-child(4) .feature-list', data: t.technicianItems }
-    ];
-    
-    lists.forEach(({selector, data}) => {
-        const list = document.querySelector(selector);
-        if (list && data) {
-            list.innerHTML = data.map(item => `<li>${item}</li>`).join('');
-        }
-    });
-}
-
-function updateProjects(t) {
-    if (!t.projects) return;
-    
-    document.querySelectorAll('#projets .project-card').forEach((card, i) => {
-        const p = t.projects[i];
-        if (!p) return;
-        
-        const title = card.querySelector('.project-title');
-        const subtitle = card.querySelector('.project-subtitle');
-        const desc = card.querySelector('.project-description > p');
-        const features = card.querySelector('.project-description .feature-list');
-        const achievements = card.querySelectorAll('.project-description .feature-list')[1];
-        
-        if (title) title.textContent = p.title;
-        if (subtitle) subtitle.textContent = p.subtitle;
-        if (desc) desc.textContent = p.description;
-        if (features && p.features) {
-            features.innerHTML = p.features.map(f => `<li>${f}</li>`).join('');
-        }
-        if (achievements && p.achievements) {
-            achievements.innerHTML = p.achievements.map(a => `<li>${a}</li>`).join('');
-        }
-        
-        const videoPlaceholder = card.querySelector('.project-video-container .video-placeholder');
-        if (videoPlaceholder && p.videoPlaceholder) {
-            videoPlaceholder.textContent = p.videoPlaceholder;
-        }
-
-        const imagePlaceholders = card.querySelectorAll('.project-image-placeholder');
-
-        if (p.imagePlaceholders && Array.isArray(p.imagePlaceholders)) {
-            imagePlaceholders.forEach((placeholder, imgIndex) => {
-                if (p.imagePlaceholders[imgIndex]) {
-                    updateImagePlaceholder(placeholder, p.imagePlaceholders[imgIndex]);
-                }
-            });
-        }
-        else if (p.imagePlaceholder) {
-            imagePlaceholders.forEach(placeholder => {
-                updateImagePlaceholder(placeholder, p.imagePlaceholder);
-            });
-        }
-    });
-}
-
-function updateImagePlaceholder(placeholder, translatedText) {
-    const imagePath = placeholder.getAttribute('data-image');
-    
-    placeholder.setAttribute('data-description', translatedText);
-    
-    if (placeholder.style.backgroundImage) {
-        const newPlaceholder = placeholder.cloneNode(true);
-        placeholder.parentNode.replaceChild(newPlaceholder, placeholder);
-
-        newPlaceholder.addEventListener('click', function() {
-            openLightbox(imagePath, translatedText);
-        });
-    } else {
-        placeholder.textContent = translatedText;
-    }
-}
-
-function updateSkills(t) {
-    if (!t.skillCategories || !t.skills) return;
-    
-    document.querySelectorAll('#competences .skill-category').forEach((cat, i) => {
-        const keys = Object.keys(t.skillCategories);
-        const key = keys[i];
-        if (!key) return;
-        
-        const h4 = cat.querySelector('h4');
-        if (h4) h4.textContent = t.skillCategories[key];
-        
-        const items = cat.querySelectorAll('.skill-item');
-        const data = t.skills[key];
-        if (data) {
-            items.forEach((item, j) => {
-                if (data[j]) item.textContent = data[j];
-            });
-        }
-    });
-}
-
-function updateExperience(t) {
-    const internList = document.querySelector('#experience .timeline-item:nth-child(2) .feature-list');
-    const studentList = document.querySelector('#experience .timeline-item:nth-child(3) .feature-list');
-    
-    if (internList && t.internshipAchievements) {
-        internList.innerHTML = t.internshipAchievements.map(item => `<li>${item}</li>`).join('');
-    }
-    if (studentList && t.studentJobTasks) {
-        studentList.innerHTML = t.studentJobTasks.map(item => `<li>${item}</li>`).join('');
-    }
-}
-
-function updateHobbies(t) {
-    if (!t.hobbiesCategories || !t.hobbies) return;
-    
-    document.querySelectorAll('#loisirs .skill-category').forEach((cat, i) => {
-        const keys = Object.keys(t.hobbiesCategories);
-        const key = keys[i];
-        if (!key) return;
-        
-        const h4 = cat.querySelector('h4');
-        if (h4) h4.textContent = t.hobbiesCategories[key];
-        
-        const items = cat.querySelectorAll('.skill-item');
-        const data = t.hobbies[key];
-        if (data) {
-            items.forEach((item, j) => {
-                if (data[j]) item.textContent = data[j];
-            });
-        }
-    });
-}
-
-function updateTranslations(lang) {
-    const t = translations[lang];
-    
-    document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key]) {
-            if (el.querySelector('svg')) {
-                const textNode = Array.from(el.childNodes).find(n => n.nodeType === 3);
-                if (textNode) textNode.textContent = t[key];
-                else el.append(t[key]);
-            } else {
-                el.textContent = t[key];
-            }
-        }
-    });
-    
-    updateExpertiseList(t);
-    updateStudiesLists(t);
-    updateSkills(t);
-    updateProjects(t);
-    updateExperience(t);
-    updateHobbies(t);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLanguage') || 'fr';
-    changeLanguage(savedLang);
-});
