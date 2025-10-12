@@ -1,4 +1,4 @@
-let currentLanguage = 'fr';
+let currentLanguage = 'en';
 
 function changeLanguage(lang) {
     currentLanguage = lang;

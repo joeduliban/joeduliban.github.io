@@ -10,6 +10,7 @@ const translations = {
         born: "Né le 27/04/1998 à Ixelles",
         nationality: "Nationalité: Belge",
         location: "Bruxelles, Belgique",
+        headerLanguages: "🇫🇷 Français (C) • 🇱🇧 Libanais (M) • 🇬🇧 Anglais (B)",
         
         // Navigation
         navProfile: "Profil",
@@ -254,6 +255,7 @@ const translations = {
         born: "Born on 04/27/1998 in Ixelles",
         nationality: "Nationality: Belgian",
         location: "Brussels, Belgium",
+        headerLanguages: "🇫🇷 French (C) • 🇱🇧 Lebanese (N) • 🇬🇧 English (B)",
         
         // Navigation
         navProfile: "Profile",
@@ -498,6 +500,7 @@ const translations = {
         born: "Nacido el 27/04/1998 en Ixelles",
         nationality: "Nacionalidad: Belga",
         location: "Bruselas, Bélgica",
+        headerLanguages: "🇫🇷 Francés (C) • 🇱🇧 Libanés (N) • 🇬🇧 Inglés (B)",
         
         // Navigation
         navProfile: "Perfil",

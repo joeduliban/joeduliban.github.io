@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     initProfileFlip();
     
-    changeLanguage('fr');
+    changeLanguage('en');
 });
 
 function initScrollAnimations() {

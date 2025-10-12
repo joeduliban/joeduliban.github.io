@@ -358,8 +358,7 @@
         font-size: 0.8em;
     }
 
-    header::after {
-        content: '🇫🇷 Français (C) • 🇱🇧 Libanais (M) • 🇬🇧 Anglais (B)';
+    .header-languages-mobile {
         display: block;
         text-align: center;
         font-size: 0.8em;

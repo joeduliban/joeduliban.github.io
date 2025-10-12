@@ -26,6 +26,10 @@ header::before {
     align-items: center;
 }
 
+.header-languages-mobile {
+    display: none;
+}
+
 .profile-section {
     text-align: center;
 }
