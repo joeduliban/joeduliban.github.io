@@ -4,13 +4,13 @@ const translations = {
         languages: "Langues",
         french: "Français (Courant)",
         lebanese: "Libanais (Maternel)",
-        english: "Anglais (Base)",
+        english: "Anglais (Inter.)",
         title: "Joe Nammour - Ingénieur Informatique Industrielle",
         jobTitle: "Ingénieur Informatique Industrielle | Développeur Full-Stack | Spécialiste IoT & Systèmes Embarqués",
         born: "Né le 27/04/1998 à Ixelles",
         nationality: "Nationalité: Belge",
         location: "Bruxelles, Belgique",
-        headerLanguages: "🇫🇷 Français (C) • 🇱🇧 Libanais (M) • 🇬🇧 Anglais (B)",
+        headerLanguages: "🇫🇷 Français (C) • 🇱🇧 Libanais (M) • 🇬🇧 Anglais (I)",
         
         // Navigation
         navProfile: "Profil",
@@ -261,13 +261,13 @@ const translations = {
         languages: "Languages",
         french: "French (Fluent)",
         lebanese: "Lebanese (Native)",
-        english: "English (Basic)",
+        english: "English (Inter.)",
         title: "Joe Nammour - Industrial Computer Engineer",
         jobTitle: "Industrial Computer Engineer | Full-Stack Developer | IoT & Embedded Systems Specialist",
         born: "Born on 04/27/1998 in Ixelles",
         nationality: "Nationality: Belgian",
         location: "Brussels, Belgium",
-        headerLanguages: "🇫🇷 French (C) • 🇱🇧 Lebanese (N) • 🇬🇧 English (B)",
+        headerLanguages: "🇫🇷 French (C) • 🇱🇧 Lebanese (N) • 🇬🇧 English (I)",
         
         // Navigation
         navProfile: "Profile",
@@ -518,13 +518,13 @@ const translations = {
         languages: "Idiomas",
         french: "Francés (Fluido)",
         lebanese: "Libanés (Nativo)",
-        english: "Inglés (Básico)",
+        english: "Inglés (Inter.)",
         title: "Joe Nammour - Ingeniero Informático Industrial",
         jobTitle: "Ingeniero Informático Industrial | Desarrollador Full-Stack | Especialista en IoT y Sistemas Embebidos",
         born: "Nacido el 27/04/1998 en Ixelles",
         nationality: "Nacionalidad: Belga",
         location: "Bruselas, Bélgica",
-        headerLanguages: "🇫🇷 Francés (C) • 🇱🇧 Libanés (N) • 🇬🇧 Inglés (B)",
+        headerLanguages: "🇫🇷 Francés (C) • 🇱🇧 Libanés (N) • 🇬🇧 Inglés (I)",
         
         // Navigation
         navProfile: "Perfil",
