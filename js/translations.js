@@ -190,7 +190,19 @@ const translations = {
                 ],
                 videoPlaceholder: "Vidéo gameplay - Ninja E-Motion Trailer",
                 imagePlaceholder: "Photo du prix remporté à la Brussels Game Jam 2024"
-            }
+            },
+            {
+                title: "EventFinder : Application Mobile Événementielle",
+                subtitle: "Application Flutter/Firebase de découverte d'événements avec carte interactive et filtres.",
+                description: "Création d'une application mobile complète (Flutter/Firebase) pour les touristes et résidents à Bruxelles. L'application se centre sur une carte interactive (type Google Maps) qui affiche les événements à proximité. Les utilisateurs peuvent filtrer les événements par catégories (Musique, Sport, Food, Art) et voir leur propre position en temps réel.",
+                features: [
+                    "<strong>Technologie :</strong> Développement cross-platform avec Flutter et Firebase (Firestore, Auth), assurant une expérience utilisateur fluide et un backend réactif.",
+                    "<strong>Carte & Filtres :</strong> Intégration d'une carte interactive pour la géolocalisation des événements. Inclut une barre de recherche et des filtres par catégories (ex: Musique, Sport, Food) pour affiner la découverte.",
+                    "<strong>Détails & Inscription :</strong> Écrans de détails complets pour chaque événement, affichant la date, l'heure, le lieu, et l'organisateur. Implémentation d'un bouton 'Register' (S'inscrire) pour la participation.",
+                    "<strong>Interaction Sociale :</strong> Fonctionnalité permettant de voir qui participe ('Going') à un événement, avec affichage des participants, pour encourager l'interaction communautaire."
+                ],
+                imagePlaceholders: ["Vue carte interactive avec filtres", "Écran de détails et d'inscription à l'événement"]
+            }
         ],
 
         // Experience Section
@@ -209,7 +221,7 @@ const translations = {
             "Configuration RTL-SDR pour réception signaux radiofréquence longue portée"
         ],
         studentJobPeriod: "Job Étudiant",
-        studentJobTitle: "Développeur Mobile & Unity - Entreprise Belge",
+        studentJobTitle: "Développeur Mobile & Unity - Computing & Dreams",
         studentJobDescription: "Développement d'applications mobiles multiplateformes avec Flutter et projets de réalité augmentée/virtuelle sous Unity pour solutions professionnelles.",
         studentJobTasks: [
             "Applications Flutter/Dart pour Android et iOS",
@@ -435,6 +447,18 @@ const translations = {
                 ],
                 videoPlaceholder: "Gameplay Video - Ninja E-Motion Trailer",
                 imagePlaceholder: "Photo of the award won at the Brussels Game Jam 2024"
+            },
+            {
+                title: "EventFinder: Mobile Event Application",
+                subtitle: "Flutter/Firebase event discovery app with interactive map and filters.",
+                description: "Creation of a complete mobile application (Flutter/Firebase) for tourists and residents in Brussels. The app centers on an interactive map (Google Maps style) displaying nearby events. Users can filter events by categories (Music, Sport, Food, Art) and see their own real-time location.",
+                features: [
+                    "<strong>Technology:</strong> Cross-platform development with Flutter and Firebase (Firestore, Auth), ensuring a smooth user experience and a responsive backend.",
+                    "<strong>Map & Filters:</strong> Integration of an interactive map for event geolocation. Includes a search bar and category filters (e.g., Music, Sport, Food) to refine discovery.",
+                    "<strong>Details & Registration:</strong> Comprehensive detail screens for each event, showing date, time, location, and organizer. Implemented a 'Register' button for participation.",
+                    "<strong>Social Interaction:</strong> Feature allowing users to see who is 'Going' to an event, displaying attendees to foster community interaction."
+                ],
+                imagePlaceholders: ["Interactive map view with filters", "Event details and registration screen"]
             }
         ],
 
@@ -454,7 +478,7 @@ const translations = {
             "RTL-SDR configuration for receiving long-range radio frequency signals"
         ],
         studentJobPeriod: "Student Job",
-        studentJobTitle: "Mobile & Unity Developer - Belgian Company",
+        studentJobTitle: "Mobile & Unity Developer - Computing & Dreams",
         studentJobDescription: "Development of cross-platform mobile applications with Flutter and augmented/virtual reality projects under Unity for professional solutions.",
         studentJobTasks: [
             "Flutter/Dart applications for Android and iOS",
@@ -680,6 +704,18 @@ const translations = {
                 ],
                 videoPlaceholder: "Video de gameplay - Tráiler de Ninja E-Motion",
                 imagePlaceholder: "Foto del premio ganado en la Brussels Game Jam 2024"
+            },
+            {
+                title: "EventFinder: Aplicación Móvil de Eventos",
+                subtitle: "Aplicación Flutter/Firebase de descubrimiento de eventos con mapa interactivo y filtros.",
+                description: "Creación de una aplicación móvil completa (Flutter/Firebase) para turistas y residentes en Bruselas. La aplicación se centra en un mapa interactivo (estilo Google Maps) que muestra eventos cercanos. Los usuarios pueden filtrar eventos por categorías (Música, Deporte, Comida, Arte) y ver su propia ubicación en tiempo real.",
+                features: [
+                    "<strong>Tecnología:</strong> Desarrollo multiplataforma con Flutter y Firebase (Firestore, Auth), garantizando una experiencia de usuario fluida y un backend receptivo.",
+                    "<strong>Mapa y Filtros:</strong> Integración de un mapa interactivo para la geolocalización de eventos. Incluye una barra de búsqueda y filtros por categoría (ej: Música, Deporte, Comida) para afinar el descubrimiento.",
+                    "<strong>Detalles e Inscripción:</strong> Pantallas de detalles completas para cada evento, mostrando fecha, hora, ubicación y organizador. Implementación de un botón 'Register' (Inscribirse) para la participación.",
+                    "<strong>Interacción Social:</strong> Funcionalidad que permite a los usuarios ver quién 'Asistirá' ('Going') a un evento, mostrando a los asistentes para fomentar la interacción comunitaria."
+                ],
+                imagePlaceholders: ["Vista de mapa interactivo con filtros", "Pantalla de detalles e inscripción al evento"]
             }
         ],
 
@@ -699,7 +735,7 @@ const translations = {
             "Configuración de RTL-SDR para recepción de señales de radiofrecuencia de largo alcance"
         ],
         studentJobPeriod: "Trabajo de Estudiante",
-        studentJobTitle: "Desarrollador Móvil y Unity - Empresa Belga",
+        studentJobTitle: "Desarrollador Móvil y Unity - Computing & Dreams",
         studentJobDescription: "Desarrollo de aplicaciones móviles multiplataforma con Flutter y proyectos de realidad aumentada/virtual bajo Unity para soluciones profesionales.",
         studentJobTasks: [
             "Aplicaciones Flutter/Dart para Android e iOS",
